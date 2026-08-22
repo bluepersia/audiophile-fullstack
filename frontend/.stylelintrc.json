@@ -1,0 +1,27 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-scss",
+  "plugins": ["stylelint-declaration-strict-value", "stylelint-scss"],
+  "rules": {
+    "media-query-no-invalid": null,
+    "nesting-selector-no-missing-scoping-root": null,
+    "scss/at-rule-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "selector-class-pattern": "^(?:[a-zA-Z0-9]|--)+$",
+    "scale-unlimited/declaration-strict-value": [
+      ["/color/", "/background-color/", "font-family"],
+      {
+        "ignoreValues": [
+          "0",
+          "none",
+          "transparent",
+          "inherit",
+          "auto",
+          "currentColor"
+        ],
+        "disableFix": false,
+        "severity": "error"
+      }
+    ]
+  }
+}
