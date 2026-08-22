@@ -1,0 +1,29 @@
+@use "/src/css/variables" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4.533rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .list {
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 0.66rem;
+  }
+
+  .listItem {
+    flex-basis: 32.36%;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .list {
+    column-gap: 2rem;
+  }
+
+  .listItem {
+    flex-basis: 31.53%;
+  }
+}
