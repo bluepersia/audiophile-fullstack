@@ -3,10 +3,10 @@ import "./App.scss";
 
 function App(): JSX.Element {
   return (
-    <>
-      <h1>Hello World</h1>
-      <p>Some lorem ipsum text</p>
-    </>
+    <div className="container">
+      <h1 className="h1">Hello World</h1>
+      <p className="overline">Some lorem ipsum text</p>
+    </div>
   );
 }
 
