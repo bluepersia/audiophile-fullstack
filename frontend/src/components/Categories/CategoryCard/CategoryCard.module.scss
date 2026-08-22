@@ -51,7 +51,7 @@
 
 @media (min-width: $bp-tablet) {
   .title {
-    font-size: clamp(1rem, 0.644rem + 0.694vi, 1.2rem);
+    font-size: clamp(1rem, 0.644rem + 0.694vw, 1.2rem);
   }
 }
 

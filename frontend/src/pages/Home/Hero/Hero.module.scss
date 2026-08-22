@@ -4,8 +4,8 @@
 .hero {
   position: relative;
   text-align: center;
-  padding: clamp(7.2rem, 6.055rem + 4.58vi, 8.4rem) 0
-    clamp(7.467rem, 3.968rem + 13.995vi, 11.133rem);
+  padding: clamp(7.2rem, 6.055rem + 4.58vw, 8.4rem) 0
+    clamp(7.467rem, 3.968rem + 13.995vw, 11.133rem);
   color: var(--color-neutral-900);
 }
 
@@ -28,7 +28,7 @@
 
 .title {
   order: 2;
-  font-size: clamp(2.4rem, 1.128rem + 5.089vi, 3.733rem);
+  font-size: clamp(2.4rem, 1.128rem + 5.089vw, 3.733rem);
   margin-bottom: 1.6rem;
   line-height: 1.11;
   letter-spacing: 0.0358em;
@@ -63,7 +63,7 @@
 
 @media (min-width: $bp-tablet) {
   .hero {
-    padding: clamp(8.4rem, 8.163rem + 0.463vi, 8.533rem) 0 11.13rem;
+    padding: clamp(8.4rem, 8.163rem + 0.463vw, 8.533rem) 0 11.13rem;
   }
 
   .new {
