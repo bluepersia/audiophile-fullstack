@@ -1,12 +1,12 @@
 import type { JSX } from "react/jsx-runtime";
 import "./App.scss";
+import { BrowserRouter, Routes } from "react-router";
 
 function App(): JSX.Element {
   return (
-    <div className="container">
-      <h1 className="h1">Hello World</h1>
-      <p className="overline">Some lorem ipsum text</p>
-    </div>
+    <BrowserRouter>
+      <Routes></Routes>
+    </BrowserRouter>
   );
 }
 
