@@ -1,0 +1,16 @@
+.btn {
+  background-color: var(--color-accent-500);
+  padding: 1.153em 2.3em;
+  transition: background-color 300ms;
+  color: var(--color-neutral-900);
+  font-size: 0.866rem;
+  font-weight: bold;
+  letter-spacing: 0.0769em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-accent-600);
+}
