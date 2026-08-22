@@ -1,2 +1,42 @@
 @use "./css/tokens.css";
 @use "./css/utilities";
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: var(--font-manrope);
+  color: var(--color-neutral-0);
+  background-color: var(--color-neutral-800);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  display: block;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  font-weight: 500;
+  line-height: 1.66;
+}
