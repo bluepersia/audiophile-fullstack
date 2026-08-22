@@ -2,4 +2,8 @@ function createCategoryLink(categoryName: string): string {
   return `/category/${categoryName}`;
 }
 
-export { createCategoryLink };
+function createProductLink(productName: string): string {
+  return `/product/${productName}`;
+}
+
+export { createCategoryLink, createProductLink };

@@ -1,0 +1,11 @@
+@use "/src/css/variables" as *;
+
+.hero {
+  margin-bottom: clamp(6.133rem, 2.571rem + 14.249vi, 9.867rem);
+}
+
+@media (min-width: $bp-tablet) {
+  .hero {
+    margin-bottom: clamp(9.867rem, 3.704rem + 12.037vi, 13.333rem);
+  }
+}
