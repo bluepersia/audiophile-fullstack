@@ -1,0 +1,12 @@
+.errorDisplay {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  color: var(--color-danger-500);
+  margin-bottom: 1rem;
+}
