@@ -1,0 +1,15 @@
+:root {
+  /* Colors */
+  --color-accent-500: #d87d4a;
+  --color-accent-600: #fbaf85;
+  --color-neutral-0: #000;
+  --color-neutral-100: #101010;
+  --color-neutral-200: #4c4c4c;
+  --color-neutral-700: #f1f1f1;
+  --color-neutral-800: #fafafa;
+  --color-neutral-900: #fff;
+  --color-danger-500: #cd2c2c;
+
+  /* Fonts */
+  --font-manrope: "Manrope", sans-serif;
+}
