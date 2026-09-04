@@ -16,3 +16,12 @@
 .btn:focus {
   background-color: var(--color-accent-600);
 }
+
+.btn--black {
+  background-color: var(--color-neutral-0);
+}
+
+.btn--black:hover,
+.btn--black:focus {
+  background-color: var(--color-neutral-200);
+}

@@ -7,6 +7,7 @@ type BtnProps = PropsWithChildren & {
   to?: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  color?: "accent" | "black";
 };
 
 export default function Btn({
@@ -14,11 +15,16 @@ export default function Btn({
   onClick,
   className,
   children,
+  color = "accent",
   ...restProps
 }: BtnProps): JSX.Element {
   if (to)
     return (
-      <Link to={to} className={clsx(styles.btn, className)} {...restProps}>
+      <Link
+        to={to}
+        className={clsx(styles.btn, className, styles[`btn--${color}`])}
+        {...restProps}
+      >
         {children}
       </Link>
     );
@@ -27,7 +33,7 @@ export default function Btn({
     return (
       <button
         onClick={onClick}
-        className={clsx(styles.btn, className)}
+        className={clsx(styles.btn, className, styles[`btn--${color}`])}
         {...restProps}
       >
         {children}

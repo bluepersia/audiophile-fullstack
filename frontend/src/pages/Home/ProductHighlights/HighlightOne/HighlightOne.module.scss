@@ -1,0 +1,105 @@
+@use "/src/css/variables" as *;
+@use "/src/css/mixins";
+
+.highlightOne {
+  background-color: var(--color-accent-500);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--color-neutral-900);
+  background-image: url("/src/assets/home/desktop/pattern-circles.svg");
+  background-size: 170%;
+  background-repeat: no-repeat;
+  background-position: top -8.5rem center;
+  padding: 3.66rem 1.6rem clamp(3.6667rem, 3.0941rem + 2.2901vw, 4.2667rem);
+}
+
+.picture {
+  order: 1;
+  display: block;
+  width: 160px;
+  margin-bottom: 2.13rem;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 2;
+}
+
+.title {
+  order: 1;
+  text-transform: uppercase;
+  line-height: 1.11;
+  letter-spacing: 0.0358em;
+  font-size: clamp(2.4rem, 1.1277rem + 5.0891vw, 3.7333rem);
+  margin-bottom: 1.6rem;
+  max-width: 250px;
+}
+
+.desc {
+  order: 2;
+  opacity: 0.75;
+  margin-bottom: 1.6rem;
+  max-width: 349px;
+}
+
+.btn {
+  order: 3;
+}
+
+@media (min-width: $bp-tablet) {
+  .highlightOne {
+    background-size: 130%;
+    background-position: top -18rem center;
+    padding: clamp(3.4667rem, -6.1333rem + 18.75vw, 8.8667rem) 1.6rem
+      clamp(4.2667rem, -2.8444rem + 13.8889vw, 8.2667rem);
+  }
+
+  .picture {
+    width: 180px;
+    margin-bottom: 4.26rem;
+  }
+
+  .title {
+    @include mixins.h1;
+
+    max-width: 280px;
+  }
+
+  .desc {
+    margin-bottom: 2.66rem;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .highlightOne {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5rem;
+    text-align: left;
+    justify-content: space-between;
+    padding: 0 6.33rem 0 7.86rem;
+    overflow-y: hidden;
+    background-size: 100%;
+    background-position: calc(50% - 18rem) calc(0% - 5rem);
+  }
+
+  .content {
+    align-items: start;
+    padding-block: 8.86rem 8.26rem;
+  }
+
+  .picture {
+    width: 380px;
+    margin-bottom: -9rem;
+  }
+}
