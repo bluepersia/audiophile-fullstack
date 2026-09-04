@@ -1,0 +1,5 @@
+const MOBILE_BP = 375;
+const TABLET_BP = 768;
+const DESKTOP_BP = 1200;
+
+export { MOBILE_BP, TABLET_BP, DESKTOP_BP };
