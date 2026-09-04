@@ -17,6 +17,7 @@ export default function Categories(): JSX.Element {
       queries={[categoriesQuery]}
       outer={(content) => (
         <nav className={styles.nav}>
+          <h2 className="srOnly">Categories</h2>
           <div className={clsx(styles.inner, "container")}>{content}</div>
         </nav>
       )}
