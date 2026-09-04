@@ -1,5 +1,5 @@
 import type { JSX } from "react/jsx-runtime";
-import type { HightlightProps } from "../HighlightRenderer";
+import type { HighlightProps } from "../HighlightRenderer";
 import styles from "./HighlightOne.module.scss";
 import Btn from "../../../../components/Btn/Btn";
 import { createProductLink } from "../../../../core/linkCreation";
@@ -8,7 +8,7 @@ import { DESKTOP_BP, TABLET_BP } from "../../../../consts/breakpoints";
 export default function HighlightOne({
   highlight,
   product,
-}: HightlightProps): JSX.Element {
+}: HighlightProps): JSX.Element {
   return (
     <article className={styles.highlightOne}>
       <div className={styles.content}>

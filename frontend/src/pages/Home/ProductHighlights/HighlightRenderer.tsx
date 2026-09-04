@@ -9,7 +9,7 @@ type HighlightRendererProps = {
   highlight: SectionData;
 };
 
-type HightlightProps = HighlightRendererProps & {
+type HighlightProps = HighlightRendererProps & {
   product: ProductData;
 };
 
@@ -33,4 +33,4 @@ export default function HighlightRenderer({
   );
 }
 
-export type { HightlightProps };
+export type { HighlightProps };
