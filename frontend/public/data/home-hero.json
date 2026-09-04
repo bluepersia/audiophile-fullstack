@@ -1,0 +1,12 @@
+{
+  "id": 0,
+  "sectionType": 0,
+  "productSlug": "xx99-mark-two-headphones",
+  "image": {
+    "mobile": "/assets/home/mobile/image-header.jpg",
+    "tablet": "/assets/home/tablet/image-header.jpg",
+    "desktop": "/assets/home/desktop/image-hero.jpg"
+  },
+  "description": "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+  "alt": "Black over-ear wireless headphones centered against a dark black background, shown in a minimalist high-contrast product-style composition."
+}
