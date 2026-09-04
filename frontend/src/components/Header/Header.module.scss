@@ -1,0 +1,55 @@
+@use "/src/css/variables" as *;
+
+.header {
+  background-color: var(--color-neutral-100);
+  border-bottom: solid 1px rgb(255 255 255 / 10.4%);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.133rem 0;
+}
+
+.nav {
+  display: none;
+}
+
+@media (min-width: $bp-tablet) {
+  .header {
+    border-bottom: none;
+  }
+
+  .inner {
+    border-bottom: solid 1px rgb(255 255 255 / 10.4%);
+    padding-bottom: clamp(2.1333rem, 1.6593rem + 0.9259vw, 2.4rem);
+  }
+
+  .menuBtn {
+    margin-right: 2.8rem;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .inner {
+    border-bottom-color: rgb(255 255 255 / 20%);
+  }
+
+  .menuBtn {
+    display: none;
+  }
+
+  .logo {
+    margin-right: unset;
+  }
+
+  .nav {
+    display: block;
+    margin-right: 8rem;
+  }
+}
