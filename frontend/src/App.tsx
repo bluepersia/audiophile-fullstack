@@ -1,6 +1,7 @@
+import type { JSX } from "react/jsx-runtime";
 import "./App.scss";
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <h1>Hello World</h1>
