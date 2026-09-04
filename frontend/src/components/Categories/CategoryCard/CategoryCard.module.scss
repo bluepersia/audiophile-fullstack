@@ -1,0 +1,72 @@
+@use "/src/css/variables" as *;
+@use "/src/css/mixins";
+
+.categoryCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-color: var(--color-neutral-700);
+  height: 165px;
+  padding-bottom: 1.46rem;
+  border-radius: 8px;
+}
+
+.img {
+  order: 1;
+  width: 150px;
+}
+
+.title {
+  order: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.071em;
+  font-size: 1rem;
+  margin-bottom: 1.13rem;
+}
+
+.btn {
+  order: 3;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+  column-gap: 0.88rem;
+  font-weight: bold;
+  letter-spacing: 0.076em;
+  font-size: 0.86rem;
+}
+
+.btnText {
+  opacity: 0.5;
+  transition: color 300ms;
+}
+
+.btn:hover .btnText,
+.btn:focus .btnText {
+  color: var(--color-accent-500);
+}
+
+@media (min-width: $bp-tablet) {
+  .title {
+    font-size: clamp(1rem, 0.6444rem + 0.6944vw, 1.2rem);
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .categoryCard {
+    height: 204px;
+    padding-bottom: 2rem;
+  }
+
+  .title {
+    @include mixins.h6;
+  }
+
+  .img {
+    width: 220px;
+    margin-bottom: -1rem;
+  }
+}

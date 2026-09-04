@@ -17,3 +17,4 @@ async function getCategories(): Promise<CategoryData[]> {
 }
 
 export { getCategories };
+export type { CategoryData };
