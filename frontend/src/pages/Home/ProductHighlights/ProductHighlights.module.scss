@@ -1,0 +1,13 @@
+@use "/src/css/variables" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(1.6rem, 1.0911rem + 2.0356vw, 2.1333rem);
+}
+
+@media (min-width: $bp-tablet) {
+  .list {
+    row-gap: clamp(2.1333rem, 0.237rem + 3.7037vw, 3.2rem);
+  }
+}
