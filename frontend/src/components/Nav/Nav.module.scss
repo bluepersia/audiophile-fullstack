@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  align-items: center;
+  column-gap: 2.26rem;
+}
+
+.link {
+  font-size: 0.866rem;
+  text-transform: uppercase;
+  color: var(--color-neutral-900);
+  text-decoration: none;
+  letter-spacing: 0.153em;
+  font-weight: bold;
+  transition: color 300ms;
+}
+
+.link:hover,
+.link:focus,
+.link--active {
+  color: var(--color-accent-500);
+}
