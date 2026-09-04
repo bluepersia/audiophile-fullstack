@@ -1,0 +1,25 @@
+@use "/src/css/variables" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4.53rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .list {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .item {
+    flex-basis: 32.36%;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .item {
+    flex-basis: 31.53%;
+  }
+}

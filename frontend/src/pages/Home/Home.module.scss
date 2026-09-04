@@ -1,0 +1,19 @@
+@use "/src/css/variables" as *;
+
+.hero {
+  margin-bottom: clamp(6.1333rem, 2.571rem + 14.2494vw, 9.8667rem);
+}
+
+.categories {
+  margin-bottom: 8rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .hero {
+    margin-bottom: clamp(9.8667rem, 3.7037rem + 12.037vw, 13.3333rem);
+  }
+
+  .categories {
+    margin-bottom: clamp(6.4rem, -2.1333rem + 16.6667vw, 11.2rem);
+  }
+}
