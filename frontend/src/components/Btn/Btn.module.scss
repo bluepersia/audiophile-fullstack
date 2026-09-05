@@ -9,7 +9,9 @@
   font-size: 0.86rem;
   font-weight: bold;
   letter-spacing: 0.076em;
-  transition: background-color 300ms;
+  transition:
+    background-color 300ms,
+    color 300ms;
 }
 
 .btn:hover,
@@ -24,4 +26,16 @@
 .btn--black:hover,
 .btn--black:focus {
   background-color: var(--color-neutral-200);
+}
+
+.btn--transparent {
+  background-color: transparent;
+  border: solid 1px var(--color-neutral-0);
+  color: var(--color-neutral-0);
+}
+
+.btn--transparent:hover,
+.btn--transparent:focus {
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-900);
 }
