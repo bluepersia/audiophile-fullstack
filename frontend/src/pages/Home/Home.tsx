@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero";
 import Categories from "../../components/Categories/Categories";
 import styles from "./Home.module.scss";
 import ProductHighlights from "./ProductHighlights/ProductHighlights";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 export default function Home(): JSX.Element {
   return (
@@ -15,6 +16,9 @@ export default function Home(): JSX.Element {
       </div>
       <div className={styles.highlights}>
         <ProductHighlights />
+      </div>
+      <div className={styles.aboutUs}>
+        <AboutUs />
       </div>
     </>
   );

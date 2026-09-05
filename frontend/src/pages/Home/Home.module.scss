@@ -8,6 +8,14 @@
   margin-bottom: 8rem;
 }
 
+.highlights {
+  margin-bottom: 8rem;
+}
+
+.aboutUs {
+  margin-bottom: 8rem;
+}
+
 @media (min-width: $bp-tablet) {
   .hero {
     margin-bottom: clamp(9.8667rem, 3.7037rem + 12.037vw, 13.3333rem);
@@ -15,5 +23,13 @@
 
   .categories {
     margin-bottom: clamp(6.4rem, -2.1333rem + 16.6667vw, 11.2rem);
+  }
+
+  .highlights {
+    margin-bottom: clamp(6.4rem, -5.9259rem + 24.0741vw, 13.3333rem);
+  }
+
+  .aboutUs {
+    margin-bottom: clamp(6.4rem, -5.9259rem + 24.0741vw, 13.3333rem);
   }
 }
