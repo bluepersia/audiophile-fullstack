@@ -1,0 +1,22 @@
+@use "/src/css/variables" as *;
+
+.goBack {
+  padding: clamp(1.0667rem, -0.0148rem + 4.3257vw, 2.2rem) 0 1.6rem;
+  opacity: 0.5;
+}
+
+.btn {
+  transition: color 300ms;
+}
+
+.btn:hover,
+.btn:focus {
+  color: var(--color-accent-500);
+}
+
+@media (min-width: $bp-tablet) {
+  .goBack {
+    padding: clamp(2.2rem, -3.2519rem + 10.6481vw, 5.2667rem) 0
+      clamp(1.6rem, -2.1926rem + 7.4074vw, 3.7333rem);
+  }
+}

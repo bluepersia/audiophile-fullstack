@@ -1,0 +1,95 @@
+@use "/src/css/mixins";
+@use "/src/css/variables" as *;
+
+.details {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 2.133rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.new {
+  order: 1;
+  margin-bottom: 1.6rem;
+}
+
+.title {
+  @include mixins.h4;
+
+  order: 2;
+  margin-bottom: 1.6rem;
+}
+
+.desc {
+  order: 3;
+  opacity: 0.5;
+  margin-bottom: 1.6rem;
+}
+
+.price {
+  order: 4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.071em;
+  margin-bottom: 2.06rem;
+}
+
+.controls {
+  order: 5;
+  display: flex;
+  column-gap: 1.066rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .details {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .picture {
+    flex-basis: 40.75%;
+    width: 100%;
+  }
+
+  .img {
+    object-fit: cover;
+  }
+
+  .content {
+    flex-basis: 49.2%;
+  }
+
+  .title {
+    font-size: clamp(1.8667rem, 0.4444rem + 2.7778vw, 2.6667rem);
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .picture {
+    flex-basis: 48.6%;
+  }
+
+  .content {
+    flex-basis: 40.1%;
+  }
+
+  .title {
+    @include mixins.h2;
+
+    margin-bottom: 2.13rem;
+  }
+
+  .desc {
+    margin-bottom: 2.13rem;
+  }
+
+  .price {
+    margin-bottom: 3.13rem;
+  }
+}
