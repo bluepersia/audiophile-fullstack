@@ -1,0 +1,69 @@
+@use "/src/css/variables" as *;
+
+.aboutUs {
+  text-align: center;
+}
+
+.picture {
+  display: block;
+  margin-bottom: 2.66rem;
+  width: 100%;
+}
+
+.img {
+  border-radius: 8px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content {
+  max-width: 573px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(1.8667rem, 1.1033rem + 3.0534vw, 2.6667rem);
+  text-transform: uppercase;
+  letter-spacing: 0.0357em;
+  margin-bottom: 2.13rem;
+}
+
+.accent {
+  color: var(--color-accent-500);
+}
+
+.desc {
+  opacity: 0.5;
+}
+
+@media (min-width: $bp-tablet) {
+  .picture {
+    margin-bottom: 4.2rem;
+  }
+
+  .title {
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .aboutUs {
+    text-align: left;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .content {
+    flex-basis: 40%;
+    margin-left: 0;
+    margin-bottom: 4.2rem;
+  }
+
+  .picture {
+    flex-basis: 48.64%;
+  }
+}
