@@ -7,7 +7,7 @@ type BtnProps = PropsWithChildren & {
   to?: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   className?: string;
-  color?: "accent" | "black";
+  color?: "accent" | "black" | "transparent";
 };
 
 export default function Btn({
