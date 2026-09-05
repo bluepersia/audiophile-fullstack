@@ -1,0 +1,54 @@
+@use "/src/css/variables" as *;
+
+.highlightThree {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 1.6rem;
+}
+
+.img {
+  border-radius: 8px;
+}
+
+.content {
+  border-radius: 8px;
+  background-color: var(--color-neutral-700);
+  padding: clamp(2.7333rem, -1.0835rem + 15.2672vw, 6.7333rem) 1.6rem;
+}
+
+.title {
+  margin-bottom: 2.13rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .highlightThree {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content,
+  .picture {
+    flex-basis: 49.2%;
+  }
+
+  .content {
+    padding-inline: 2.73rem;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .content,
+  .picture {
+    flex-basis: 48.6%;
+  }
+
+  .content {
+    padding-inline: 6.33rem;
+  }
+}
