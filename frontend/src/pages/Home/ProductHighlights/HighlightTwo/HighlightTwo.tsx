@@ -12,7 +12,9 @@ export default function HighlightTwo({
 }: HighlightProps): JSX.Element {
   return (
     <article className={styles.highlightTwo}>
-      <h2 className={clsx(styles.title, "h4")}>{product.name}</h2>
+      <h2 className={clsx(styles.title, "h4")}>
+        {highlight.alias || product.name}
+      </h2>
       <Btn
         color="transparent"
         to={createProductLink(product.slug)}

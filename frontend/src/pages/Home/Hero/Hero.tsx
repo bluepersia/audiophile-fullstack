@@ -39,7 +39,7 @@ export default function Hero(): JSX.Element {
       {(hero: SectionData, product: ProductData) => (
         <>
           <div className={styles.content}>
-            <h1 className={styles.title}>{product.name}</h1>
+            <h1 className={styles.title}>{hero.alias || product.name}</h1>
             <NewProduct isNew={product.new} className={styles.new} />
             <p className={styles.desc}>{hero.description}</p>
             <Btn
