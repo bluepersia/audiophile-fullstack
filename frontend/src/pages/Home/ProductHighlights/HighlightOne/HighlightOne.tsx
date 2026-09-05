@@ -12,7 +12,7 @@ export default function HighlightOne({
   return (
     <article className={styles.highlightOne}>
       <div className={styles.content}>
-        <h2 className={styles.title}>{product.name}</h2>
+        <h2 className={styles.title}>{highlight.alias || product.name}</h2>
         <p className={styles.desc}>{highlight.description}</p>
         <Btn
           to={createProductLink(product.slug)}
