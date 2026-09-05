@@ -1,6 +1,7 @@
 import type { JSX } from "react/jsx-runtime";
 import Header from "../Header/Header";
 import { Outlet } from "react-router";
+import Footer from "../Footer/Footer";
 
 export default function AppLayout(): JSX.Element {
   return (
@@ -9,6 +10,7 @@ export default function AppLayout(): JSX.Element {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

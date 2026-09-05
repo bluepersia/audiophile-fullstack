@@ -1,7 +1,14 @@
+@use "/src/css/variables" as *;
+
 .list {
   display: flex;
   align-items: center;
   column-gap: 2.26rem;
+}
+
+.nav--footer .list {
+  flex-direction: column;
+  row-gap: 1.066rem;
 }
 
 .link {
@@ -18,4 +25,10 @@
 .link:focus,
 .link--active {
   color: var(--color-accent-500);
+}
+
+@media (min-width: $bp-tablet) {
+  .nav--footer .list {
+    flex-direction: row;
+  }
 }
