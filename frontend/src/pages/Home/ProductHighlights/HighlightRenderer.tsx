@@ -5,6 +5,7 @@ import HighlightOne from "./HighlightOne/HighlightOne";
 import { useQuery } from "@tanstack/react-query";
 import ProgQuery from "../../../components/ProgQuery/ProgQuery";
 import HighlightTwo from "./HighlightTwo/HighlightTwo";
+import HighlightThree from "./HighlightThree/HighlightThree";
 
 type HighlightRendererProps = {
   highlight: SectionData;
@@ -31,6 +32,8 @@ export default function HighlightRenderer({
         if (highlight.sectionType === 2)
           return <HighlightTwo highlight={highlight} product={product} />;
 
+        if (highlight.sectionType === 3)
+          return <HighlightThree highlight={highlight} product={product} />;
         return <></>;
       }}
     </ProgQuery>
