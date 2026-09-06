@@ -2,6 +2,7 @@ import type { JSX } from "react/jsx-runtime";
 import type { ProductData } from "../../../api/products";
 import { DESKTOP_BP, TABLET_BP } from "../../../consts/breakpoints";
 import styles from "./Gallery.module.scss";
+import clsx from "clsx";
 
 type GalleryProps = {
   product: ProductData;
@@ -10,7 +11,7 @@ type GalleryProps = {
 //TODO: add gallery alt texts
 export default function Gallery({ product }: GalleryProps): JSX.Element {
   return (
-    <section className={styles.gallery}>
+    <section className={clsx(styles.gallery, "container")}>
       <picture className={styles.pictureOne}>
         <source
           srcSet={product.gallery.first.desktop}
