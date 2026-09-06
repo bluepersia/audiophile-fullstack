@@ -9,7 +9,7 @@ type RelatedProps = {
 };
 export default function Related({ product }: RelatedProps): JSX.Element {
   return (
-    <section className={styles.related}>
+    <section className={clsx(styles.related, "container")}>
       <h2 className={styles.title}>You may also like</h2>
       <ul className={clsx(styles.list, "resetList")}>
         {product.others.map((other) => (

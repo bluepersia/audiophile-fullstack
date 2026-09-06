@@ -8,7 +8,7 @@ type OverviewProps = {
 };
 export default function Overview({ product }: OverviewProps): JSX.Element {
   return (
-    <section className={styles.overview}>
+    <section className={clsx(styles.overview, "container")}>
       <div className={styles.features}>
         <h2 className={styles.title}>Features</h2>
         <p className={styles.featuresText}>{product.features}</p>

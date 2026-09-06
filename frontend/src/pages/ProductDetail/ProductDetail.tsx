@@ -22,7 +22,7 @@ export default function ProductDetail(): JSX.Element {
     <ProgQuery
       queries={[productQuery]}
       outer={(content, queriesStatus) => (
-        <div className="container">
+        <>
           <p className="srOnly" aria-live="polite">
             {queriesStatus.type === "pending"
               ? "Loading product."
@@ -32,7 +32,7 @@ export default function ProductDetail(): JSX.Element {
           </p>
           <GoBack />
           <article>{content}</article>
-        </div>
+        </>
       )}
     >
       {(product: ProductData) => (

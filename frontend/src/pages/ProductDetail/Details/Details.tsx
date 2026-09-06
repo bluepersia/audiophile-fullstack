@@ -8,6 +8,7 @@ import Btn from "../../../components/Btn/Btn";
 import { CartContext } from "../../../contexts/CartContext/CartContext";
 import styles from "./Details.module.scss";
 import { DESKTOP_BP, TABLET_BP } from "../../../consts/breakpoints";
+import clsx from "clsx";
 
 type DetailsProps = {
   product: ProductData;
@@ -29,7 +30,7 @@ export default function Details({ product }: DetailsProps): JSX.Element {
     );
   }
   return (
-    <section className={styles.details}>
+    <section className={clsx(styles.details, "container")}>
       <div className={styles.content}>
         <h1 className={styles.title}>{product.name}</h1>
         <NewProduct isNew={product.new} className={styles.new} />
