@@ -1,4 +1,8 @@
-import { useQuery, type UseQueryResult } from "@tanstack/react-query";
+import {
+  keepPreviousData,
+  useQuery,
+  type UseQueryResult,
+} from "@tanstack/react-query";
 import type {
   CartItem,
   FullCartItem,
@@ -12,9 +16,10 @@ export default function useFullCartItems(
 } {
   const cart = cartQuery.data;
   const productsQuery = useQuery({
-    queryKey: ["full-cart"],
+    queryKey: ["full-cart", cart],
     queryFn: () => getProductsForCart(cart!),
     enabled: cartQuery.isSuccess,
+    placeholderData: keepPreviousData,
   });
 
   return { productsQuery };
