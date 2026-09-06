@@ -4,7 +4,7 @@ import {
   CartContext,
   type CartContextType,
 } from "../../contexts/CartContext/CartContext";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import ProgQuery, { type QueriesStatus } from "../ProgQuery/ProgQuery";
 import { getProductsByIds, type ProductData } from "../../api/products";
 import type {
@@ -30,6 +30,7 @@ export default function FullCart({
     queryFn: () => getProductsByIds(productIds!),
     queryKey: ["products", productIds],
     enabled: cartContext?.cartQuery.isSuccess,
+    placeholderData: keepPreviousData,
   });
 
   return (
