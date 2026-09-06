@@ -58,3 +58,5 @@ export default function ProgQuery<T extends unknown[]>({
     queriesStatus,
   );
 }
+
+export type { QueriesStatus };
