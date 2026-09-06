@@ -13,6 +13,7 @@
   background-color: var(--color-neutral-0);
   opacity: 0.4;
 }
+
 @media (min-width: $bp-tablet) {
   .overlay {
     top: clamp(6rem, 5.2889rem + 1.3889vw, 6.4rem);
