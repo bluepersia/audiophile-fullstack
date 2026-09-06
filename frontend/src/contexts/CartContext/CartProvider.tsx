@@ -36,9 +36,6 @@ export default function CartProvider({
         !lastDebounceRef.current?.isPending
       )
         context.client.invalidateQueries({ queryKey: ["cart"] });
-      context.client.invalidateQueries({
-        queryKey: ["full-cart"],
-      });
     },
   });
 
@@ -52,9 +49,6 @@ export default function CartProvider({
         !lastDebounceRef.current?.isPending
       )
         context.client.invalidateQueries({ queryKey: ["cart"] });
-      context.client.invalidateQueries({
-        queryKey: ["full-cart"],
-      });
     },
   });
 
