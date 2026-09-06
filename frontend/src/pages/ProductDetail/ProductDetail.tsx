@@ -7,6 +7,7 @@ import { getProductBySlug, type ProductData } from "../../api/products";
 import ProgQuery from "../../components/ProgQuery/ProgQuery";
 import styles from "./ProductDetail.module.scss";
 import Overview from "./Overview/Overview";
+import Gallery from "./Gallery/Gallery";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -40,6 +41,9 @@ export default function ProductDetail(): JSX.Element {
           </div>
           <div className={styles.overview}>
             <Overview product={product} />
+          </div>
+          <div className={styles.gallery}>
+            <Gallery product={product} />
           </div>
         </>
       )}

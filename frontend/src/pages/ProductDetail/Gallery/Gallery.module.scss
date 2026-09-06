@@ -1,0 +1,52 @@
+@use "/src/css/variables" as *;
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.33rem;
+}
+
+.pictureOne,
+.pictureTwo,
+.pictureThree {
+  width: 100%;
+}
+
+.imgOne,
+.imgTwo,
+.imgThree {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (min-width: $bp-tablet) {
+  .gallery {
+    display: grid;
+    grid-template-columns: 43fr 57fr;
+    grid-template-rows: auto auto;
+    column-gap: 1.2rem;
+  }
+
+  .pictureOne {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .pictureTwo {
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+  }
+
+  .pictureThree {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .gallery {
+    gap: 2.13rem 2rem;
+  }
+}
