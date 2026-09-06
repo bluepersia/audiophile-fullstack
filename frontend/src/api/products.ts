@@ -1,3 +1,7 @@
+import type {
+  CartItem,
+  FullCartItem,
+} from "../contexts/CartContext/CartContext.types";
 import AppError from "../types/AppError";
 
 type ProductData = {
@@ -74,5 +78,22 @@ async function getProductBySlug(slug: string): Promise<ProductData> {
   return product;
 }
 
-export { getProductBySlug };
+async function getProductsForCart(cart: CartItem[]): Promise<FullCartItem[]> {
+  const res = await fetch("/data/products.json");
+
+  if (!res.ok) throw new AppError("Failed to load products");
+
+  const products: ProductData[] = await res.json();
+
+  const productsById = new Map(products.map((prod) => [prod.id, prod]));
+
+  return cart
+    .filter((cartItem) => productsById.has(cartItem.id))
+    .map((cartItem) => ({
+      ...cartItem,
+      ...productsById.get(cartItem.id)!,
+    }));
+}
+
+export { getProductBySlug, getProductsForCart };
 export type { ProductData };

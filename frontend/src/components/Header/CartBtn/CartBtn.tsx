@@ -1,8 +1,26 @@
+import { useContext } from "react";
 import type { JSX } from "react/jsx-runtime";
+import { ModalContext } from "../../../contexts/ModalContext/ModalContext";
+import { CartContext } from "../../../contexts/CartContext/CartContext";
+import { countItems } from "../../../core/cart";
+import styles from "./CartBtn.module.scss";
 
 export default function CartBtn(): JSX.Element {
+  const modalContext = useContext(ModalContext);
+  const cartContext = useContext(CartContext);
+
+  const itemCount = countItems(cartContext?.cartQuery.data || []);
+
   return (
-    <button>
+    <button
+      aria-haspopup="dialog"
+      onClick={() =>
+        modalContext?.toggleModal({
+          type: "cart",
+        })
+      }
+      className={styles.btn}
+    >
       <svg
         className="interactiveSVG"
         width="23"
@@ -15,6 +33,7 @@ export default function CartBtn(): JSX.Element {
           fillRule="nonzero"
         />
       </svg>
+      {itemCount > 0 && <p className={styles.count}>{itemCount}</p>}
     </button>
   );
 }

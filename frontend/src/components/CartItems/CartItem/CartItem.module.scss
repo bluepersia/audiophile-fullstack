@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 64px;
+  height: 64px;
+  margin-right: 1.06rem;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.price {
+  opacity: 0.5;
+  font-size: 0.93rem;
+}

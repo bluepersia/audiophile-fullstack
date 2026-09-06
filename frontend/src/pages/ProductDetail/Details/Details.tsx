@@ -45,7 +45,7 @@ export default function Details({ product }: DetailsProps): JSX.Element {
           />
           <Btn
             onClick={() => {
-              cartContext?.updateCartItemQuantityBy(product.id, quantity);
+              cartContext?.updateCartItemQuantityBy(product, quantity);
               setQuantity(0);
             }}
             className={styles.addToCartBtn}
