@@ -10,6 +10,7 @@ import Overview from "./Overview/Overview";
 import Gallery from "./Gallery/Gallery";
 import Related from "./Related/Related";
 import Categories from "../../components/Categories/Categories";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -32,7 +33,7 @@ export default function ProductDetail(): JSX.Element {
                 : ""}
           </p>
           <GoBack />
-          <article>{content}</article>
+          <article className={styles.detail}>{content}</article>
         </>
       )}
     >
@@ -53,6 +54,7 @@ export default function ProductDetail(): JSX.Element {
           <div className={styles.categories}>
             <Categories />
           </div>
+          <AboutUs />
         </>
       )}
     </ProgQuery>
