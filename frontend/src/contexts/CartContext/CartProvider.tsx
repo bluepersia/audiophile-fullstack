@@ -111,7 +111,7 @@ export default function CartProvider({
   }
 
   async function clearCartItems() {
-    await Promise.all([queryClient.cancelQueries({ queryKey: cartQueryKey })]);
+    await queryClient.cancelQueries({ queryKey: cartQueryKey });
 
     queryClient.setQueryData<CartItem[]>(cartQueryKey, []);
 
