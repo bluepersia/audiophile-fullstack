@@ -1,0 +1,43 @@
+@use "/src/css/variables" as *;
+
+.related {
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.6rem, 1.0911rem + 2.0356vw, 2.1333rem);
+  letter-spacing: 0.0358em;
+  text-transform: uppercase;
+  margin-bottom: 2.66rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.73rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .title {
+    margin-bottom: 3.73rem;
+  }
+
+  .list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .item {
+    flex-basis: 32.2%;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .title {
+    margin-bottom: 4.26rem;
+  }
+
+  .item {
+    flex-basis: 31.5%;
+  }
+}
