@@ -13,14 +13,14 @@ import CartItem from "../CartItems/CartItem/CartItem";
 import LabelValue from "../LabelValue/LabelValue";
 import formatCurrency from "../../core/formatCurrency";
 import QuantityPanel from "../QuantityPanel/QuantityPanel";
-import useFullCartItems from "../../hooks/useFullCartItems";
+import useFullCart from "../../hooks/useFullCart";
 import clsx from "clsx";
 import Btn from "../Btn/Btn";
 
 export default function Cart(): JSX.Element {
   const cartContext = useContext(CartContext);
 
-  const { productsQuery } = useFullCartItems(cartContext!.cartQuery);
+  const { productsQuery } = useFullCart(cartContext!.cartQuery);
 
   const hasItems =
     cartContext?.cartQuery.data && cartContext.cartQuery.data.length > 0;
@@ -30,7 +30,7 @@ export default function Cart(): JSX.Element {
       queries={[cartContext!.cartQuery, productsQuery]}
       outer={(content) => <section className={styles.cart}>{content}</section>}
     >
-      {(cart: CartItemType[], fullCartItems: FullCartItem[]) => (
+      {(cart: CartItemType[], fullCart: FullCartItem[]) => (
         <>
           <div className={styles.top}>
             <h2 className={clsx(styles.title, "h6")}>
@@ -44,7 +44,7 @@ export default function Cart(): JSX.Element {
             </button>
           </div>
           <CartItems
-            items={fullCartItems}
+            items={fullCart}
             renderCartItem={(item) => (
               <CartItem item={item}>
                 <QuantityPanel
@@ -65,7 +65,7 @@ export default function Cart(): JSX.Element {
           />
           <LabelValue
             label="Total"
-            value={formatCurrency(calculateTotalPrice(fullCartItems))}
+            value={formatCurrency(calculateTotalPrice(fullCart))}
             className={styles.total}
           />
           {hasItems && (
