@@ -1,0 +1,32 @@
+@use "/src/css/variables" as *;
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.picture {
+  width: 100%;
+  order: 1;
+  margin-bottom: 2.13rem;
+}
+
+.img {
+  width: 100%;
+}
+
+.title {
+  order: 2;
+  margin-bottom: 2.133rem;
+}
+
+.btn {
+  order: 3;
+  margin: 0 auto;
+}
+
+@media (min-width: $bp-tablet) {
+  .picture {
+    margin-bottom: 2.66rem;
+  }
+}
