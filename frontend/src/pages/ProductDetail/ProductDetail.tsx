@@ -18,8 +18,15 @@ export default function ProductDetail(): JSX.Element {
   return (
     <ProgQuery
       queries={[productQuery]}
-      outer={(content) => (
+      outer={(content, queriesStatus) => (
         <div className="container">
+          <p className="srOnly" aria-live="polite">
+            {queriesStatus.type === "pending"
+              ? "Loading product."
+              : queriesStatus.type === "error"
+                ? queriesStatus.message
+                : ""}
+          </p>
           <GoBack />
           <article>{content}</article>
         </div>
