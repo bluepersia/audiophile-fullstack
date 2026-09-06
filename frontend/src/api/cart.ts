@@ -1,7 +1,6 @@
 import type { User } from "../contexts/AuthContext/AuthContext.types";
 import type { CartItem } from "../contexts/CartContext/CartContext.types";
 import { updateCartItemQuantity } from "../core/cart";
-import sleep from "../utils/sleep";
 
 async function getCart(user: User): Promise<CartItem[]> {
   if (!user) {
