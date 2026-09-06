@@ -9,6 +9,7 @@ import styles from "./ProductDetail.module.scss";
 import Overview from "./Overview/Overview";
 import Gallery from "./Gallery/Gallery";
 import Related from "./Related/Related";
+import Categories from "../../components/Categories/Categories";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -48,6 +49,9 @@ export default function ProductDetail(): JSX.Element {
           </div>
           <div className={styles.related}>
             <Related product={product} />
+          </div>
+          <div className={styles.categories}>
+            <Categories />
           </div>
         </>
       )}

@@ -16,6 +16,10 @@
   margin-bottom: 11.46rem;
 }
 
+.categories {
+  margin-bottom: 8rem;
+}
+
 @media (min-width: $bp-tablet) {
   .details {
     margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
@@ -31,5 +35,9 @@
 
   .related {
     margin-bottom: clamp(11.4667rem, 3.4074rem + 15.7407vw, 16rem);
+  }
+
+  .categories {
+    margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
   }
 }
