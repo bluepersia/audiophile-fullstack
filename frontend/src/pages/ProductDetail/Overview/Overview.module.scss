@@ -1,0 +1,63 @@
+@use "/src/css/variables" as *;
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(5.8667rem, 3.831rem + 8.1425vw, 8rem);
+}
+
+.title {
+  font-size: clamp(1.6rem, 1.0911rem + 2.0356vw, 2.1333rem);
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.0358em;
+  text-transform: uppercase;
+}
+
+.featuresText {
+  white-space: pre-line;
+  opacity: 0.5;
+  max-width: 635px;
+}
+
+.boxItem {
+  display: flex;
+  align-items: center;
+  column-gap: 1.6rem;
+}
+
+.boxList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.53rem;
+}
+
+.boxItemQuantity {
+  color: var(--color-accent-500);
+}
+
+.boxItemName {
+  opacity: 0.5;
+}
+
+@media (min-width: $bp-tablet) {
+  .inTheBox {
+    display: flex;
+    column-gap: 25%;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .overview {
+    flex-direction: row;
+    column-gap: 10%;
+  }
+
+  .features {
+    flex-basis: 57.2%;
+  }
+
+  .inTheBox {
+    display: block;
+    flex-basis: 31.5%;
+  }
+}
