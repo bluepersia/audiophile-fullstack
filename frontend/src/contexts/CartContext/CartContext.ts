@@ -12,3 +12,4 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | null>(null);
 
 export { CartContext };
+export { type CartContextType };

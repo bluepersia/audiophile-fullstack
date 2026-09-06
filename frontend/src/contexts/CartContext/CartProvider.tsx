@@ -11,8 +11,9 @@ import { AuthContext } from "../AuthContext/AuthContext";
 import { clearCart, getCart, updateCartItem } from "../../api/cart";
 import debounce, { type Debounce } from "../../utils/debounce";
 import { updateCartItemQuantity } from "../../core/cart";
-import { type FullCartItem, type CartItem } from "./CartContext.types";
+import { type CartItem } from "./CartContext.types";
 import type { ProductData } from "../../api/products";
+import type { User } from "../AuthContext/AuthContext.types";
 
 export default function CartProvider({
   children,
@@ -21,8 +22,10 @@ export default function CartProvider({
 
   const authContext = useContext(AuthContext);
 
+  const cartQueryKey = ["cart", authContext?.user];
+
   const cartQuery = useQuery({
-    queryKey: ["cart"],
+    queryKey: cartQueryKey,
     queryFn: () => getCart(authContext?.user || null),
   });
 
@@ -35,7 +38,7 @@ export default function CartProvider({
         context.client.isMutating({ mutationKey: ["cart"] }) === 1 &&
         !lastDebounceRef.current?.isPending
       )
-        context.client.invalidateQueries({ queryKey: ["cart"] });
+        context.client.invalidateQueries({ queryKey: cartQueryKey });
     },
   });
 
@@ -48,31 +51,32 @@ export default function CartProvider({
         context.client.isMutating({ mutationKey: ["cart"] }) === 1 &&
         !lastDebounceRef.current?.isPending
       )
-        context.client.invalidateQueries({ queryKey: ["cart"] });
+        context.client.invalidateQueries({ queryKey: cartQueryKey });
     },
   });
 
   const lastDebounceRef = useRef<Debounce>(null);
   const itemQuantityDebounces = useRef<
-    Map<number, (id: number, quantity: number) => Debounce>
+    Map<number, (user: User, id: number, quantity: number) => Debounce>
   >(new Map());
   const clearCartDebounce = useMemo(
     () =>
-      debounce(() => {
-        clearCartMutation.mutate({ user: authContext?.user || null });
+      debounce((user: User) => {
+        clearCartMutation.mutate({ user });
       }, 400),
-    [clearCartMutation, authContext?.user],
+    [clearCartMutation],
   );
 
   function getItemQuantityDebounce(
     id: number,
-  ): (id: number, quantity: number) => Debounce {
+  ): (user: User, id: number, quantity: number) => Debounce {
     if (!itemQuantityDebounces.current.has(id)) {
       itemQuantityDebounces.current.set(
         id,
-        debounce((id: number, quantity: number) => {
+        debounce((user: User, id: number, quantity: number) => {
+          itemQuantityDebounces.current.delete(id);
           updateCartItemMutation.mutate({
-            user: authContext?.user || null,
+            user,
             id,
             quantity,
           });
@@ -93,35 +97,25 @@ export default function CartProvider({
 
     const newQuantity = currentItemQuantity + by;
 
-    await Promise.all([
-      queryClient.cancelQueries({ queryKey: ["cart"] }),
-      queryClient.cancelQueries({ queryKey: ["full-cart"] }),
-    ]);
+    await queryClient.cancelQueries({ queryKey: cartQueryKey });
 
-    queryClient.setQueryData<CartItem[]>(["cart"], (prevCart) =>
+    queryClient.setQueryData<CartItem[]>(cartQueryKey, (prevCart) =>
       updateCartItemQuantity(prevCart || [], id, newQuantity),
     );
 
-    queryClient.setQueryData<FullCartItem[]>(
-      ["full-cart", currentCart],
-      (prevCart) =>
-        updateCartItemQuantity(prevCart || [], id, newQuantity, product),
+    lastDebounceRef.current = getItemQuantityDebounce(id)(
+      authContext!.user,
+      id,
+      newQuantity,
     );
-
-    lastDebounceRef.current = getItemQuantityDebounce(id)(id, newQuantity);
   }
 
   async function clearCartItems() {
-    await Promise.all([
-      queryClient.cancelQueries({ queryKey: ["cart"] }),
-      queryClient.cancelQueries({ queryKey: ["full-cart"] }),
-    ]);
+    await Promise.all([queryClient.cancelQueries({ queryKey: cartQueryKey })]);
 
-    queryClient.setQueryData<CartItem[]>(["cart"], []);
+    queryClient.setQueryData<CartItem[]>(cartQueryKey, []);
 
-    queryClient.setQueryData<FullCartItem[]>(["full-cart"], []);
-
-    lastDebounceRef.current = clearCartDebounce();
+    lastDebounceRef.current = clearCartDebounce(authContext!.user);
   }
 
   return (
