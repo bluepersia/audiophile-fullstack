@@ -1,0 +1,51 @@
+@use "/src/css/variables" as *;
+
+.cart {
+  margin: 0 auto;
+  margin-top: 1.6rem;
+  background-color: var(--color-neutral-900);
+  border-radius: 8px;
+  width: 87.2%;
+  max-width: 377px;
+  padding: 2.13rem 1.86rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.13rem;
+}
+
+.removeAllBtn {
+  text-decoration: underline;
+  opacity: 0.5;
+  transition: color 300ms;
+}
+
+.removeAllBtn:hover,
+.removeAllBtn:focus {
+  color: var(--color-accent-500);
+}
+
+.quantityPanel {
+  margin-left: auto;
+}
+
+.list {
+  margin-bottom: 2.13rem;
+}
+
+.total {
+  margin-bottom: 1.6rem;
+}
+
+.btn.btn {
+  width: 100%;
+}
+
+@media (min-width: $bp-tablet) {
+  .cart {
+    margin-right: 6.4%;
+  }
+}

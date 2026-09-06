@@ -1,0 +1,17 @@
+.btn {
+  position: relative;
+}
+
+.count {
+  border-radius: 50%;
+  background-color: var(--color-accent-500);
+  color: var(--color-neutral-900);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}

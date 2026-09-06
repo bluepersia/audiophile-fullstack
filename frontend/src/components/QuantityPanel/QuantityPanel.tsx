@@ -8,6 +8,7 @@ type QuantityPanelProps = {
   quantity: number;
   productName: string;
   className?: string;
+  size?: "normal" | "small";
 };
 export default function QuantityPanel({
   increment,
@@ -15,9 +16,16 @@ export default function QuantityPanel({
   quantity,
   productName,
   className,
+  size = "normal",
 }: QuantityPanelProps): JSX.Element {
   return (
-    <div className={clsx(styles.quantityPanel, className)}>
+    <div
+      className={clsx(
+        styles.quantityPanel,
+        className,
+        styles[`quantityPanel--${size}`],
+      )}
+    >
       <button
         className={clsx(styles.decrementBtn, styles.quantityBtn)}
         onClick={decrement}
