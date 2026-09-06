@@ -102,8 +102,10 @@ export default function CartProvider({
       updateCartItemQuantity(prevCart || [], id, newQuantity),
     );
 
-    queryClient.setQueryData<FullCartItem[]>(["full-cart"], (prevCart) =>
-      updateCartItemQuantity(prevCart || [], id, newQuantity, product),
+    queryClient.setQueryData<FullCartItem[]>(
+      ["full-cart", currentCart],
+      (prevCart) =>
+        updateCartItemQuantity(prevCart || [], id, newQuantity, product),
     );
 
     lastDebounceRef.current = getItemQuantityDebounce(id)(id, newQuantity);
