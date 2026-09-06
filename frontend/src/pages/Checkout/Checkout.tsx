@@ -1,7 +1,7 @@
 import type { JSX } from "react/jsx-runtime";
 import GoBack from "../../components/GoBack/GoBack";
 import Form from "./Form/Form";
-import { useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import { AsYouType } from "libphonenumber-js";
 import clsx from "clsx";
 import styles from "./Checkout.module.scss";
@@ -44,6 +44,10 @@ export default function Checkout(): JSX.Element {
   });
 
   const [errors, setErrors] = useState<FormDataState>(() => newFormState());
+
+  useEffect(() => {
+    localStorage.setItem("form", JSON.stringify(formData));
+  }, [formData]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setFormData((prevFormData) => {
