@@ -59,6 +59,10 @@
   accent-color: var(--color-accent-500);
 }
 
+.radioContainer:has(.radioInput:checked) {
+  border: solid 1px var(--color-accent-500);
+}
+
 .radioLabel {
   font-size: 0.93rem;
   font-weight: bold;
