@@ -57,7 +57,7 @@ export default function Cart(): JSX.Element {
               className={styles.total}
             />
             {hasItems && (
-              <Btn onClick={() => {}} className={styles.btn}>
+              <Btn to="/checkout" className={styles.btn}>
                 Checkout
               </Btn>
             )}
