@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProductBySlug, type ProductData } from "../../api/products";
 import ProgQuery from "../../components/ProgQuery/ProgQuery";
 import styles from "./ProductDetail.module.scss";
+import Overview from "./Overview/Overview";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -36,6 +37,9 @@ export default function ProductDetail(): JSX.Element {
         <>
           <div className={styles.details}>
             <Details product={product} />
+          </div>
+          <div className={styles.overview}>
+            <Overview product={product} />
           </div>
         </>
       )}

@@ -21,6 +21,7 @@ type ProductData = {
   new: boolean;
   price: number;
   description: string;
+  features: string;
   includes: [
     {
       quantity: number;
