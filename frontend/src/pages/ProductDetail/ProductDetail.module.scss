@@ -8,12 +8,16 @@
   margin-bottom: clamp(5.8667rem, 3.831rem + 8.1425vw, 8rem);
 }
 
+.gallery {
+  margin-bottom: 8rem;
+}
+
 @media (min-width: $bp-tablet) {
   .details {
     margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
   }
 
   .overview {
-    margin-bottom: clamp(8rem, 4.883rem + 12.4682vw, 11.2667rem);
+    margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
   }
 }
