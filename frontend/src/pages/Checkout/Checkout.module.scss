@@ -1,0 +1,18 @@
+@use "/src/css/variables" as *;
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.133rem;
+}
+
+@media (min-width: $bp-desktop) {
+  .checkout {
+    flex-direction: row;
+    margin-bottom: 9.4rem;
+  }
+
+  .checkoutForm {
+    flex-basis: 65.7%;
+  }
+}

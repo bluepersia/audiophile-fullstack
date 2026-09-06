@@ -1,0 +1,47 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.input {
+  width: 100%;
+  border-radius: 8px;
+  border: solid 1px #cfcfcf;
+  padding: 1.28em 1.714em;
+  transition: border 300ms;
+  outline: none;
+  font-size: 0.933rem;
+  height: 56px;
+}
+
+.input:hover,
+.input:focus {
+  border: solid 1px var(--color-accent-500);
+}
+
+.error {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  line-height: 1em;
+}
+
+.fieldGroup--error .label,
+.fieldGroup--error .error {
+  color: var(--color-danger-500);
+}
+
+.fieldGroup--error .input {
+  border: solid 2px var(--color-danger-500);
+}

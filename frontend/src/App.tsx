@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Home from "./pages/Home/Home";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import Checkout from "./pages/Checkout/Checkout";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App(): JSX.Element {
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="product/:slug" element={<ProductDetail />} />
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>
