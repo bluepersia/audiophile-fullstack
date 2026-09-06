@@ -9,9 +9,7 @@ import type {
 } from "../contexts/CartContext/CartContext.types";
 import { getProductsForCart } from "../api/products";
 
-export default function useFullCartItems(
-  cartQuery: UseQueryResult<CartItem[]>,
-): {
+export default function useFullCart(cartQuery: UseQueryResult<CartItem[]>): {
   productsQuery: UseQueryResult<FullCartItem[]>;
 } {
   const cart = cartQuery.data;
