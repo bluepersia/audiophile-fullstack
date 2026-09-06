@@ -64,7 +64,8 @@ export default function CartProvider({
       debounce((user: User) => {
         clearCartMutation.mutate({ user });
       }, 400),
-    [clearCartMutation],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
   );
 
   function getItemQuantityDebounce(
