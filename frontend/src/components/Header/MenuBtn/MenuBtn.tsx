@@ -1,12 +1,20 @@
+import { useContext } from "react";
 import type { JSX } from "react/jsx-runtime";
+import { ModalContext } from "../../../contexts/ModalContext/ModalContext";
 
 type MenuBtnProps = {
   className?: string;
 };
 
 export default function MenuBtn({ className }: MenuBtnProps): JSX.Element {
+  const modalContext = useContext(ModalContext);
+
   return (
-    <button className={className}>
+    <button
+      className={className}
+      aria-haspopup="dialog"
+      onClick={() => modalContext?.toggleModal({ type: "categories" })}
+    >
       <svg
         className="interactiveSVG"
         width="16"
