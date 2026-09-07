@@ -11,11 +11,12 @@ export default function ModalProvider({
 
   useEffect(() => {
     closeModal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   function toggleModal(type: ModalType) {
     if (currentModal?.type === type?.type) {
-      setCurrentModal(null);
+      closeModal();
       return;
     }
     setCurrentModal(type);

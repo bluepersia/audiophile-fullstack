@@ -17,7 +17,10 @@ export default function Modal(): JSX.Element {
 
       case "order":
         return (
-          <OrderSummary grandTotal={modalContext.currentModal.grandTotal} />
+          <OrderSummary
+            grandTotal={modalContext.currentModal.grandTotal}
+            fullCart={modalContext.currentModal.fullCart}
+          />
         );
       case "categories":
         return <CategoriesModal />;

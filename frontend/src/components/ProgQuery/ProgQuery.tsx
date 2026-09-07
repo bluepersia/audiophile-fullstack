@@ -16,7 +16,7 @@ type QueriesStatus =
 
 type ProgQueryProps<T extends unknown[]> = {
   queries: UseBaseQueryResult[];
-  outer: (content: ReactNode, queriesStatus: QueriesStatus) => JSX.Element;
+  outer?: (content: ReactNode, queriesStatus: QueriesStatus) => JSX.Element;
   children: (...queryData: T) => JSX.Element | JSX.Element[];
 };
 
@@ -36,7 +36,7 @@ function getQueriesStatus(queries: UseBaseQueryResult[]): QueriesStatus {
 
 export default function ProgQuery<T extends unknown[]>({
   queries,
-  outer,
+  outer = (content) => <>{content}</>,
   children,
 }: ProgQueryProps<T>): JSX.Element {
   const queriesStatus = getQueriesStatus(queries);

@@ -11,6 +11,9 @@ import Summary from "./Summary/Summary";
 import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 import { useNavigate } from "react-router";
+import type { FullCartItem } from "../../contexts/CartContext/CartContext.types";
+import { useMutation } from "@tanstack/react-query";
+import { processCheckout } from "../../api/checkout";
 
 type FormDataState = {
   name: string;
@@ -46,6 +49,21 @@ export default function Checkout(): JSX.Element {
   const modalContext = useContext(ModalContext);
   const cartContext = useContext(CartContext);
 
+  const processCheckoutMutation = useMutation({
+    mutationFn: processCheckout,
+    mutationKey: ["process-checkout"],
+    onSuccess: ({ grandTotal, fullCart }) =>
+      modalContext?.openModal({
+        type: "order",
+        grandTotal,
+        fullCart,
+        onClose: () => {
+          cartContext?.clearCartItems();
+          navigate("/");
+        },
+      }),
+  });
+
   const [formData, setFormData] = useState<FormDataState>(() => {
     const formDataFromLS = localStorage.getItem("form");
 
@@ -74,18 +92,11 @@ export default function Checkout(): JSX.Element {
     setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
   }
 
-  function submit(grandTotal: number) {
+  async function submit(fullCart: FullCartItem[]) {
     try {
       checkoutSchema.parse(formData);
 
-      modalContext?.openModal({
-        type: "order",
-        grandTotal,
-        onClose: () => {
-          cartContext?.clearCartItems();
-          navigate("/");
-        },
-      });
+      processCheckoutMutation.mutate(fullCart);
     } catch (err) {
       if (err instanceof ZodError) {
         for (const issue of err.issues.reverse()) {
