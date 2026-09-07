@@ -22,7 +22,7 @@ type SummaryProps = {
 export default function Summary({ submit }: SummaryProps): JSX.Element {
   return (
     <section className={styles.summary}>
-      <h2 className={styles.title}>Summary</h2>
+      <h2 className={clsx(styles.title, "h6")}>Summary</h2>
       <FullCart outer={(content) => <>{content}</>}>
         {(fullCart) => {
           const totalPrice = calculateTotalPrice(fullCart);
