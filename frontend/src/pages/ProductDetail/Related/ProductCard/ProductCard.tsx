@@ -22,7 +22,7 @@ export default function ProductCard({
   slug,
 }: ProductCardProps): JSX.Element {
   return (
-    <div className={styles.productCard}>
+    <article className={styles.productCard}>
       <h3 className={clsx(styles.title, "h5")}>{name}</h3>
       <picture className={styles.picture}>
         <source srcSet={image.desktop} media={`(min-width:${DESKTOP_BP}px)`} />
@@ -36,6 +36,6 @@ export default function ProductCard({
       >
         See Product
       </Btn>
-    </div>
+    </article>
   );
 }
