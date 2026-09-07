@@ -91,5 +91,15 @@ async function getProductsByIds(
   return productsById;
 }
 
-export { getProductBySlug, getProductsByIds };
+async function getProductsByCategory(category: string): Promise<ProductData[]> {
+  const res = await fetch("/data/products.json");
+
+  if (!res.ok) throw new AppError("Failed to load products");
+
+  const products: ProductData[] = await res.json();
+
+  return products.filter((prod) => prod.category === category);
+}
+
+export { getProductBySlug, getProductsByIds, getProductsByCategory };
 export type { ProductData };

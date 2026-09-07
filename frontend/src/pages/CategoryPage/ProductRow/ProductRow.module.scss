@@ -1,0 +1,102 @@
+@use "/src/css/variables" as *;
+@use "/src/css/mixins";
+
+.productRow {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.picture,
+.img {
+  width: 100%;
+  order: 1;
+}
+
+.picture {
+  margin-bottom: 2.13rem;
+}
+
+.content {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: 572px;
+  margin: 0 auto;
+}
+
+.new {
+  order: 1;
+  margin-bottom: 1.6rem;
+}
+
+.title {
+  order: 2;
+  font-size: clamp(1.8667rem, 1.1033rem + 3.0534vw, 2.6667rem);
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+}
+
+.desc {
+  order: 3;
+  opacity: 0.5;
+  margin-bottom: 1.6rem;
+}
+
+.btn {
+  order: 4;
+  margin: 0 auto;
+}
+
+@media (min-width: $bp-tablet) {
+  .picture {
+    margin-bottom: 3.46rem;
+  }
+
+  .new {
+    margin-bottom: 1.06rem;
+  }
+
+  .title {
+    @include mixins.h2;
+
+    margin-bottom: 2.13rem;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .productRow {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .productRow--inverse {
+    flex-direction: row-reverse;
+  }
+
+  .picture {
+    order: 1;
+    flex-basis: 48.6%;
+  }
+
+  .content {
+    order: 2;
+    align-items: start;
+    flex-basis: 40%;
+    margin: 0;
+  }
+
+  .title,
+  .btn {
+    margin-left: 0;
+  }
+
+  .desc {
+    margin-bottom: 2.6rem;
+  }
+}
