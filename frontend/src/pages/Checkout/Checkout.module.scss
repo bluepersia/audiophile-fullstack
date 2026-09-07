@@ -1,15 +1,19 @@
 @use "/src/css/variables" as *;
 
+.page {
+  background-color: var(--color-neutral-700);
+}
+
 .checkout {
   display: flex;
   flex-direction: column;
   row-gap: 2.133rem;
-  margin-bottom: clamp(6.4667rem, 5.258rem + 4.8346vw, 7.7333rem);
+  padding-bottom: clamp(6.4667rem, 5.258rem + 4.8346vw, 7.7333rem);
 }
 
 @media (min-width: $bp-tablet) {
   .checkout {
-    margin-bottom: clamp(7.7333rem, 4.7704rem + 5.787vw, 9.4rem);
+    padding-bottom: clamp(7.7333rem, 4.7704rem + 5.787vw, 9.4rem);
   }
 }
 

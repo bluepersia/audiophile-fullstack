@@ -67,7 +67,7 @@ export default function Checkout(): JSX.Element {
   function submit() {}
 
   return (
-    <>
+    <div className={styles.page}>
       <GoBack />
       <div className={clsx(styles.checkout, "container")}>
         <Form
@@ -78,7 +78,7 @@ export default function Checkout(): JSX.Element {
         />
         <Summary submit={submit} />
       </div>
-    </>
+    </div>
   );
 }
 
