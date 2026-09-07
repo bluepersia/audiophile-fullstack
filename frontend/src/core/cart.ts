@@ -4,6 +4,9 @@ import type {
   FullCartItem,
 } from "../contexts/CartContext/CartContext.types";
 
+const SHIPPING_COST = 50;
+const TAX_RATE = 0.2;
+
 function updateCartItemQuantity<TCartItem extends CartItem>(
   cart: TCartItem[],
   id: number,
@@ -40,4 +43,31 @@ function calculateTotalPrice(cart: FullCartItem[]): number {
   return cart.reduce((prev, curr) => prev + curr.quantity * curr.price, 0);
 }
 
-export { updateCartItemQuantity, countItems, calculateTotalPrice };
+function calculateShipping(): number {
+  return SHIPPING_COST;
+}
+
+function calculateVAT(totalPrice: number): number {
+  return totalPrice * TAX_RATE;
+}
+
+function calculateTotalPriceIncVAT(totalPrice: number, VAT: number): number {
+  return totalPrice + VAT;
+}
+
+function calculateGrandTotal(
+  totalPriceIncVAT: number,
+  shippingCost: number,
+): number {
+  return totalPriceIncVAT + shippingCost;
+}
+
+export {
+  updateCartItemQuantity,
+  countItems,
+  calculateTotalPrice,
+  calculateShipping,
+  calculateVAT,
+  calculateTotalPriceIncVAT,
+  calculateGrandTotal,
+};

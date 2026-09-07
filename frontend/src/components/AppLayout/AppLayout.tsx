@@ -6,6 +6,7 @@ import AuthProvider from "../../contexts/AuthContext/AuthProvider";
 import CartProvider from "../../contexts/CartContext/CartProvider";
 import ModalProvider from "../../contexts/ModalContext/ModalProvider";
 import Modal from "../Modal/Modal";
+import styles from "./AppLayout.module.scss";
 
 export default function AppLayout(): JSX.Element {
   return (
@@ -13,7 +14,7 @@ export default function AppLayout(): JSX.Element {
       <CartProvider>
         <ModalProvider>
           <Header />
-          <main>
+          <main className={styles.main}>
             <Outlet />
           </main>
           <Modal />

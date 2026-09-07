@@ -1,0 +1,11 @@
+@use "/src/css/variables" as *;
+
+.main {
+  padding-top: 95px;
+}
+
+@media (min-width: $bp-tablet) {
+  .main {
+    padding-top: clamp(6rem, 5.2889rem + 1.3889vw, 6.4rem);
+  }
+}

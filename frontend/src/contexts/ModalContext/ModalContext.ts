@@ -5,6 +5,7 @@ type ModalContextType = {
   currentModal: ModalType;
   toggleModal: (type: ModalType) => void;
   closeModal: () => void;
+  openModal: (type: ModalType) => void;
 };
 
 const ModalContext = createContext<ModalContextType | null>(null);

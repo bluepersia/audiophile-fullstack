@@ -3,7 +3,7 @@
 
 .checkoutForm {
   background-color: var(--color-neutral-900);
-  padding: 1.6rem;
+  padding: clamp(1.6rem, 1.2183rem + 1.5267vw, 2rem) 1.6rem;
   border-radius: 8px;
 }
 
@@ -85,7 +85,7 @@
 
 @media (min-width: $bp-tablet) {
   .checkoutForm {
-    padding: 2rem 1.833rem;
+    padding: clamp(2rem, -0.8444rem + 5.5556vw, 3.6rem) 1.833rem;
   }
 
   .title {

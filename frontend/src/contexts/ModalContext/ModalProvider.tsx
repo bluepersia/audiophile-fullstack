@@ -23,9 +23,18 @@ export default function ModalProvider({
 
   function closeModal() {
     setCurrentModal(null);
+    if (currentModal?.onClose) {
+      currentModal.onClose();
+    }
+  }
+
+  function openModal(type: ModalType) {
+    setCurrentModal(type);
   }
   return (
-    <ModalContext.Provider value={{ currentModal, toggleModal, closeModal }}>
+    <ModalContext.Provider
+      value={{ currentModal, toggleModal, closeModal, openModal }}
+    >
       {children}
     </ModalContext.Provider>
   );
