@@ -1,0 +1,40 @@
+@use "/src/css/variables" as *;
+
+.summary {
+  background-color: var(--color-neutral-900);
+  padding: 2.13rem 1.6rem;
+  border-radius: 8px;
+  flex-basis: 31.5%;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.071em;
+  font-size: 1.2rem;
+  margin-bottom: 2.06rem;
+}
+
+.cartItems {
+  margin-bottom: 2.13rem;
+}
+
+.pricingList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.53rem;
+  margin-bottom: 2.13rem;
+}
+
+.grandTotalItem {
+  margin-top: 1.06rem;
+}
+
+.payBtn {
+  width: 100%;
+}
+
+@media (min-width: $bp-tablet) {
+  .summary {
+    padding-inline: 2.2rem;
+  }
+}

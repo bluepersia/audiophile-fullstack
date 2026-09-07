@@ -5,6 +5,7 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { AsYouType } from "libphonenumber-js";
 import clsx from "clsx";
 import styles from "./Checkout.module.scss";
+import Summary from "./Summary/Summary";
 
 type FormDataState = {
   name: string;
@@ -63,6 +64,8 @@ export default function Checkout(): JSX.Element {
     setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
   }
 
+  function submit() {}
+
   return (
     <>
       <GoBack />
@@ -73,6 +76,7 @@ export default function Checkout(): JSX.Element {
           handleChange={handleChange}
           className={styles.checkoutForm}
         />
+        <Summary submit={submit} />
       </div>
     </>
   );
