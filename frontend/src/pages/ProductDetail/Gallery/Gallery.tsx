@@ -23,7 +23,7 @@ export default function Gallery({ product }: GalleryProps): JSX.Element {
         />
         <img
           src={product.gallery.first.mobile}
-          alt=""
+          alt={product.gallery.first.alt}
           className={styles.imgOne}
         />
       </picture>
@@ -38,7 +38,7 @@ export default function Gallery({ product }: GalleryProps): JSX.Element {
         />
         <img
           src={product.gallery.second.mobile}
-          alt=""
+          alt={product.gallery.second.alt}
           className={styles.imgTwo}
         />
       </picture>
@@ -53,7 +53,7 @@ export default function Gallery({ product }: GalleryProps): JSX.Element {
         />
         <img
           src={product.gallery.third.mobile}
-          alt=""
+          alt={product.gallery.third.alt}
           className={styles.imgThree}
         />
       </picture>

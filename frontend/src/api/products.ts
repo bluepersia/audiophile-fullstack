@@ -33,16 +33,19 @@ type ProductData = {
       mobile: string;
       tablet: string;
       desktop: string;
+      alt: string;
     };
     second: {
       mobile: string;
       tablet: string;
       desktop: string;
+      alt: string;
     };
     third: {
       mobile: string;
       tablet: string;
       desktop: string;
+      alt: string;
     };
   };
   others: [
