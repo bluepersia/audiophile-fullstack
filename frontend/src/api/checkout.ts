@@ -7,7 +7,7 @@ import { getProductsByIds, type ProductData } from "./products";
 
 async function processCheckout(
   cart: CartItem[],
-): Promise<{ grandTotal: number }> {
+): Promise<{ grandTotal: number; fullCart: FullCartItem[] }> {
   const products: Map<number, ProductData> = await getProductsByIds(
     cart.map((item) => item.id),
   );
@@ -20,6 +20,7 @@ async function processCheckout(
 
   return {
     grandTotal,
+    fullCart,
   };
 }
 

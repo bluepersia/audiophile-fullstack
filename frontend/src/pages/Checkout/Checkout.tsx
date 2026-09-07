@@ -52,10 +52,11 @@ export default function Checkout(): JSX.Element {
   const processCheckoutMutation = useMutation({
     mutationFn: processCheckout,
     mutationKey: ["process-checkout"],
-    onSuccess: ({ grandTotal }) =>
+    onSuccess: ({ grandTotal, fullCart }) =>
       modalContext?.openModal({
         type: "order",
         grandTotal,
+        fullCart,
         onClose: () => {
           cartContext?.clearCartItems();
           navigate("/");

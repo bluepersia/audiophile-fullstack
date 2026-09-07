@@ -1,3 +1,5 @@
+import type { FullCartItem } from "../CartContext/CartContext.types";
+
 type ModalType =
   | ({
       onClose?: () => void;
@@ -8,6 +10,7 @@ type ModalType =
       | {
           type: "order";
           grandTotal: number;
+          fullCart: FullCartItem[];
         }
       | {
           type: "categories";
