@@ -39,8 +39,8 @@ function countItems(cart: CartItem[]): number {
   return cart.reduce((prev, curr) => prev + curr.quantity, 0);
 }
 
-function calculateTotalPrice(cart: FullCartItem[]): number {
-  return cart.reduce((prev, curr) => prev + curr.quantity * curr.price, 0);
+function calculateTotalPrice(fullCart: FullCartItem[]): number {
+  return fullCart.reduce((prev, curr) => prev + curr.quantity * curr.price, 0);
 }
 
 function calculateShipping(): number {
@@ -62,14 +62,14 @@ function calculateGrandTotal(
   return totalPriceIncVAT + shippingCost;
 }
 
-function calculateAllCosts(cart: FullCartItem[]): {
+function calculateAllCosts(fullCart: FullCartItem[]): {
   totalPrice: number;
   shippingCost: number;
   VAT: number;
   totalPriceIncVAT: number;
   grandTotal: number;
 } {
-  const totalPrice = calculateTotalPrice(cart);
+  const totalPrice = calculateTotalPrice(fullCart);
   const shippingCost = calculateShipping();
   const VAT = calculateVAT(totalPrice);
   const totalPriceIncVAT = calculateTotalPriceIncVAT(totalPrice, VAT);

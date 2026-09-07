@@ -11,7 +11,7 @@ import Btn from "../../../components/Btn/Btn";
 import type { FullCartItem } from "../../../contexts/CartContext/CartContext.types";
 
 type SummaryProps = {
-  submit: (cart: FullCartItem[]) => void;
+  submit: (fullCart: FullCartItem[]) => void;
 };
 
 export default function Summary({ submit }: SummaryProps): JSX.Element {

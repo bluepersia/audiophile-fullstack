@@ -92,11 +92,11 @@ export default function Checkout(): JSX.Element {
     setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
   }
 
-  async function submit(cart: FullCartItem[]) {
+  async function submit(fullCart: FullCartItem[]) {
     try {
       checkoutSchema.parse(formData);
 
-      processCheckoutMutation.mutate(cart);
+      processCheckoutMutation.mutate(fullCart);
     } catch (err) {
       if (err instanceof ZodError) {
         for (const issue of err.issues.reverse()) {
