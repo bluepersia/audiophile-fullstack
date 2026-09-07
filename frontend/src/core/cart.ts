@@ -62,6 +62,22 @@ function calculateGrandTotal(
   return totalPriceIncVAT + shippingCost;
 }
 
+function calculateAllCosts(cart: FullCartItem[]): {
+  totalPrice: number;
+  shippingCost: number;
+  VAT: number;
+  totalPriceIncVAT: number;
+  grandTotal: number;
+} {
+  const totalPrice = calculateTotalPrice(cart);
+  const shippingCost = calculateShipping();
+  const VAT = calculateVAT(totalPrice);
+  const totalPriceIncVAT = calculateTotalPriceIncVAT(totalPrice, VAT);
+  const grandTotal = calculateGrandTotal(totalPriceIncVAT, shippingCost);
+
+  return { totalPrice, shippingCost, VAT, totalPriceIncVAT, grandTotal };
+}
+
 export {
   updateCartItemQuantity,
   countItems,
@@ -70,4 +86,5 @@ export {
   calculateVAT,
   calculateTotalPriceIncVAT,
   calculateGrandTotal,
+  calculateAllCosts,
 };

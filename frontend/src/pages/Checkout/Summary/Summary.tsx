@@ -3,20 +3,15 @@ import CartItems from "../../../components/CartItems/CartItems";
 import FullCart from "../../../components/FullCart/FullCart";
 import CartItemWithQuantity from "../../../components/CartItemWithQuantity/CartItemWithQuantity";
 import LabelValue from "../../../components/LabelValue/LabelValue";
-import {
-  calculateGrandTotal,
-  calculateShipping,
-  calculateTotalPrice,
-  calculateTotalPriceIncVAT,
-  calculateVAT,
-} from "../../../core/cart";
+import { calculateAllCosts } from "../../../core/cart";
 import formatCurrency from "../../../core/formatCurrency";
 import styles from "./Summary.module.scss";
 import clsx from "clsx";
 import Btn from "../../../components/Btn/Btn";
+import type { FullCartItem } from "../../../contexts/CartContext/CartContext.types";
 
 type SummaryProps = {
-  submit: (grandTotal: number) => void;
+  submit: (cart: FullCartItem[]) => void;
 };
 
 export default function Summary({ submit }: SummaryProps): JSX.Element {
@@ -25,14 +20,8 @@ export default function Summary({ submit }: SummaryProps): JSX.Element {
       <h2 className={clsx(styles.title, "h6")}>Summary</h2>
       <FullCart>
         {(fullCart) => {
-          const totalPrice = calculateTotalPrice(fullCart);
-          const shippingCost = calculateShipping();
-          const VAT = calculateVAT(totalPrice);
-          const totalPriceIncVAT = calculateTotalPriceIncVAT(totalPrice, VAT);
-          const grandTotal = calculateGrandTotal(
-            totalPriceIncVAT,
-            shippingCost,
-          );
+          const { shippingCost, VAT, totalPriceIncVAT, grandTotal } =
+            calculateAllCosts(fullCart);
 
           return (
             <>
@@ -68,7 +57,7 @@ export default function Summary({ submit }: SummaryProps): JSX.Element {
                   />
                 </li>
               </ul>
-              <Btn onClick={() => submit(grandTotal)} className={styles.payBtn}>
+              <Btn onClick={() => submit(fullCart)} className={styles.payBtn}>
                 Continue & Pay
               </Btn>
             </>
