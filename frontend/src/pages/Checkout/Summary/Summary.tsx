@@ -23,7 +23,7 @@ export default function Summary({ submit }: SummaryProps): JSX.Element {
   return (
     <section className={styles.summary}>
       <h2 className={clsx(styles.title, "h6")}>Summary</h2>
-      <FullCart outer={(content) => <>{content}</>}>
+      <FullCart>
         {(fullCart) => {
           const totalPrice = calculateTotalPrice(fullCart);
           const shippingCost = calculateShipping();

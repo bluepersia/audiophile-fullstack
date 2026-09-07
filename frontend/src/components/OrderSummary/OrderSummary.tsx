@@ -20,7 +20,7 @@ export default function OrderSummary({
       <p className={styles.body}>
         You will receive an email confirmation shortly.
       </p>
-      <FullCart outer={(content) => <>{content}</>}>
+      <FullCart>
         {(fullCart) => {
           return (
             <>

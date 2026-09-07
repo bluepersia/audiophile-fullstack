@@ -24,7 +24,7 @@ export default function HighlightRenderer({
   });
 
   return (
-    <ProgQuery queries={[productQuery]} outer={(content) => <>{content}</>}>
+    <ProgQuery queries={[productQuery]}>
       {(product: ProductData) => {
         if (highlight.sectionType === 1)
           return <HighlightOne highlight={highlight} product={product} />;

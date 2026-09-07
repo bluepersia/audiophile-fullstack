@@ -13,7 +13,7 @@ import type {
 } from "../../contexts/CartContext/CartContext.types";
 
 type FullCartProps = {
-  outer: (content: ReactNode, queriesStatus: QueriesStatus) => JSX.Element;
+  outer?: (content: ReactNode, queriesStatus: QueriesStatus) => JSX.Element;
   children: (
     fullCart: FullCartItem[],
     cartContext: CartContextType,
