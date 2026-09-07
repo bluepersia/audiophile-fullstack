@@ -3,6 +3,9 @@
 .header {
   background-color: var(--color-neutral-100);
   border-bottom: solid 1px rgb(255 255 255 / 10.4%);
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
 }
 
 .inner {

@@ -16,7 +16,7 @@ import clsx from "clsx";
 import Btn from "../../../components/Btn/Btn";
 
 type SummaryProps = {
-  submit: () => void;
+  submit: (grandTotal: number) => void;
 };
 
 export default function Summary({ submit }: SummaryProps): JSX.Element {
@@ -68,7 +68,7 @@ export default function Summary({ submit }: SummaryProps): JSX.Element {
                   />
                 </li>
               </ul>
-              <Btn onClick={submit} className={styles.payBtn}>
+              <Btn onClick={() => submit(grandTotal)} className={styles.payBtn}>
                 Continue & Pay
               </Btn>
             </>

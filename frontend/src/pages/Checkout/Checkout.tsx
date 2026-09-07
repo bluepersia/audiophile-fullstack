@@ -1,11 +1,16 @@
 import type { JSX } from "react/jsx-runtime";
 import GoBack from "../../components/GoBack/GoBack";
 import Form from "./Form/Form";
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useContext, useEffect, useState, type ChangeEvent } from "react";
 import { AsYouType } from "libphonenumber-js";
+import { ZodError } from "zod";
+import { checkoutSchema } from "./Checkout.schema";
 import clsx from "clsx";
 import styles from "./Checkout.module.scss";
 import Summary from "./Summary/Summary";
+import { ModalContext } from "../../contexts/ModalContext/ModalContext";
+import { CartContext } from "../../contexts/CartContext/CartContext";
+import { useNavigate } from "react-router";
 
 type FormDataState = {
   name: string;
@@ -36,6 +41,11 @@ function newFormState(): FormDataState {
 }
 
 export default function Checkout(): JSX.Element {
+  const navigate = useNavigate();
+
+  const modalContext = useContext(ModalContext);
+  const cartContext = useContext(CartContext);
+
   const [formData, setFormData] = useState<FormDataState>(() => {
     const formDataFromLS = localStorage.getItem("form");
 
@@ -64,7 +74,27 @@ export default function Checkout(): JSX.Element {
     setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
   }
 
-  function submit() {}
+  function submit(grandTotal: number) {
+    try {
+      checkoutSchema.parse(formData);
+
+      modalContext?.openModal({
+        type: "order",
+        grandTotal,
+        onClose: () => {
+          cartContext?.clearCartItems();
+          navigate("/");
+        },
+      });
+    } catch (err) {
+      if (err instanceof ZodError) {
+        for (const issue of err.issues.reverse()) {
+          for (const path of issue.path)
+            setErrors((prev) => ({ ...prev, [path]: issue.message }));
+        }
+      }
+    }
+  }
 
   return (
     <div className={styles.page}>

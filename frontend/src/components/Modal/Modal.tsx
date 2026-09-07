@@ -4,6 +4,7 @@ import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./Modal.module.scss";
 import Cart from "../Cart/Cart";
+import OrderSummary from "../OrderSummary/OrderSummary";
 
 export default function Modal(): JSX.Element {
   const modalContext = useContext(ModalContext);
@@ -12,6 +13,11 @@ export default function Modal(): JSX.Element {
     switch (modalContext?.currentModal?.type) {
       case "cart":
         return <Cart />;
+
+      case "order":
+        return (
+          <OrderSummary grandTotal={modalContext.currentModal.grandTotal} />
+        );
     }
   }
 
