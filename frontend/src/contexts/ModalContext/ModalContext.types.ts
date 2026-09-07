@@ -9,6 +9,9 @@ type ModalType =
           type: "order";
           grandTotal: number;
         }
+      | {
+          type: "categories";
+        }
     ))
   | null;
 

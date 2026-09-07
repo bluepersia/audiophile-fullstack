@@ -5,6 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import styles from "./Modal.module.scss";
 import Cart from "../Cart/Cart";
 import OrderSummary from "../OrderSummary/OrderSummary";
+import CategoriesModal from "../CategoriesModal/CategoriesModal";
 
 export default function Modal(): JSX.Element {
   const modalContext = useContext(ModalContext);
@@ -18,6 +19,8 @@ export default function Modal(): JSX.Element {
         return (
           <OrderSummary grandTotal={modalContext.currentModal.grandTotal} />
         );
+      case "categories":
+        return <CategoriesModal />;
     }
   }
 
