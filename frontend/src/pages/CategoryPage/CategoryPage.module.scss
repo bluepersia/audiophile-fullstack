@@ -1,0 +1,61 @@
+@use "/src/css/variables" as *;
+@use "/src/css/mixins";
+
+.page {
+  margin-bottom: 8rem;
+}
+
+.head {
+  padding-top: clamp(2.1333rem, -2.5104rem + 18.5751vw, 7rem);
+  padding-bottom: clamp(2.1333rem, -2.0015rem + 16.5394vw, 6.4667rem);
+  background-color: var(--color-neutral-0);
+  text-align: center;
+  margin-bottom: clamp(4.2667rem, 0.7043rem + 14.2494vw, 8rem);
+}
+
+.title {
+  font-size: clamp(1.8667rem, 1.1033rem + 3.0534vw, 2.6667rem);
+  color: var(--color-neutral-900);
+  text-transform: uppercase;
+  letter-spacing: 0.071em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8rem;
+  margin-bottom: 11.46rem;
+}
+
+.categories {
+  margin-bottom: 8rem;
+}
+
+@media (min-width: $bp-tablet) {
+  .page {
+    margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
+  }
+
+  .head {
+    margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
+  }
+
+  .title {
+    @include mixins.h2;
+  }
+
+  .list {
+    row-gap: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
+    margin-bottom: clamp(11.4667rem, 3.4074rem + 15.7407vw, 16rem);
+  }
+
+  .categories {
+    margin-bottom: clamp(8rem, 3.2593rem + 9.2593vw, 10.6667rem);
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .head {
+    padding-top: 6.53rem;
+  }
+}
