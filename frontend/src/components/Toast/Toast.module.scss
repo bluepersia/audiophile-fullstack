@@ -1,0 +1,21 @@
+.toast {
+  min-width: 200px;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-danger-500);
+  color: var(--color-neutral-900);
+  text-align: center;
+  border-radius: 8px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 1001;
+  transition: transform 300ms;
+}
+
+.toast--hidden {
+  transform: translate(-50%, -100%);
+}
+
+.toast--visible {
+  transform: translate(-50%, 0%);
+}

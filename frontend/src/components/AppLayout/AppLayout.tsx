@@ -7,20 +7,25 @@ import CartProvider from "../../contexts/CartContext/CartProvider";
 import ModalProvider from "../../contexts/ModalContext/ModalProvider";
 import Modal from "../Modal/Modal";
 import styles from "./AppLayout.module.scss";
+import ToastProvider from "../../contexts/ToastContext/ToastProvider";
+import Toast from "../Toast/Toast";
 
 export default function AppLayout(): JSX.Element {
   return (
     <AuthProvider>
-      <CartProvider>
-        <ModalProvider>
-          <Header />
-          <main className={styles.main}>
-            <Outlet />
-          </main>
-          <Modal />
-          <Footer />
-        </ModalProvider>
-      </CartProvider>
+      <ToastProvider>
+        <CartProvider>
+          <ModalProvider>
+            <Header />
+            <main className={styles.main}>
+              <Outlet />
+            </main>
+            <Modal />
+            <Toast />
+            <Footer />
+          </ModalProvider>
+        </CartProvider>
+      </ToastProvider>
     </AuthProvider>
   );
 }
