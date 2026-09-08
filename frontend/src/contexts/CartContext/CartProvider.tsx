@@ -14,6 +14,7 @@ import { updateCartItemQuantity } from "../../core/cart";
 import { type CartItem } from "./CartContext.types";
 import type { ProductData } from "../../api/products";
 import type { User } from "../AuthContext/AuthContext.types";
+import { ToastContext } from "../ToastContext/ToastContext";
 
 export default function CartProvider({
   children,
@@ -21,6 +22,7 @@ export default function CartProvider({
   const queryClient = useQueryClient();
 
   const authContext = useContext(AuthContext);
+  const toastContext = useContext(ToastContext);
 
   const cartQueryKey = ["cart", authContext?.user];
 
@@ -33,6 +35,11 @@ export default function CartProvider({
     mutationKey: ["cart"],
     scope: { id: "cart" },
     mutationFn: updateCartItem,
+    onError: () => {
+      toastContext?.show(
+        "Couldn't update cart — showing latest saved quantity",
+      );
+    },
     onSettled: (_data, _err, _variables, _result, context) => {
       if (
         context.client.isMutating({ mutationKey: ["cart"] }) === 1 &&
@@ -46,6 +53,9 @@ export default function CartProvider({
     mutationKey: ["cart"],
     scope: { id: "cart" },
     mutationFn: clearCart,
+    onError: () => {
+      toastContext?.show("Couldn't clear cart — showing latest saved cart");
+    },
     onSettled: (_data, _err, _variables, _result, context) => {
       if (
         context.client.isMutating({ mutationKey: ["cart"] }) === 1 &&
