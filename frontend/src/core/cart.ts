@@ -13,7 +13,10 @@ function updateCartItemQuantity<TCartItem extends CartItem>(
   quantity: number,
   fillerProduct?: ProductData | undefined,
 ): TCartItem[] {
-  if (quantity > 99) return cart;
+  if (quantity > 99) {
+    // eslint-disable-next-line no-param-reassign
+    quantity = 99;
+  }
 
   if (quantity <= 0) return cart.filter((item) => item.id !== id);
 
