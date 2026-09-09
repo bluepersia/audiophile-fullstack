@@ -1,4 +1,3 @@
-import type { ProductData } from "../api/products";
 import type {
   CartItem,
   FullCartItem,
@@ -11,7 +10,6 @@ function updateCartItemQuantity<TCartItem extends CartItem>(
   cart: TCartItem[],
   id: number,
   quantity: number,
-  fillerProduct?: ProductData | undefined,
 ): TCartItem[] {
   if (quantity > 99) {
     // eslint-disable-next-line no-param-reassign
@@ -23,7 +21,6 @@ function updateCartItemQuantity<TCartItem extends CartItem>(
   const itemIndex = cart.findIndex((item) => item.id === id);
 
   const newItem = {
-    ...fillerProduct,
     id,
     quantity,
   } as TCartItem;
