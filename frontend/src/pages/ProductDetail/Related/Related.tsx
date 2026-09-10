@@ -9,7 +9,7 @@ type RelatedProps = {
 };
 export default function Related({ product }: RelatedProps): JSX.Element {
   return (
-    <div
+    <section
       aria-labelledby="related-products-title"
       className={clsx(styles.related, "container")}
     >
@@ -23,6 +23,6 @@ export default function Related({ product }: RelatedProps): JSX.Element {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
