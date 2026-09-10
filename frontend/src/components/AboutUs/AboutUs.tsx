@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 export default function AboutUs(): JSX.Element {
   return (
-    <section className={styles.aboutUs}>
+    <section aria-labelledby="about-us-title" className={styles.aboutUs}>
       <div className={clsx(styles.inner, "container")}>
         <picture className={styles.picture}>
           <source
@@ -27,7 +27,7 @@ export default function AboutUs(): JSX.Element {
         </picture>
 
         <div className={styles.content}>
-          <h2 className={styles.title}>
+          <h2 id="about-us-title" className={styles.title}>
             Bringing you the <span className={styles.accent}>best</span> audio
             gear
           </h2>

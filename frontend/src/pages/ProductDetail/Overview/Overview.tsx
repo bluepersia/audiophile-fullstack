@@ -8,13 +8,17 @@ type OverviewProps = {
 };
 export default function Overview({ product }: OverviewProps): JSX.Element {
   return (
-    <section className={clsx(styles.overview, "container")}>
-      <div className={styles.features}>
-        <h2 className={styles.title}>Features</h2>
+    <div className={clsx(styles.overview, "container")}>
+      <section aria-labelledby="features-title" className={styles.features}>
+        <h2 id="features-title" className={styles.title}>
+          Features
+        </h2>
         <p className={styles.featuresText}>{product.features}</p>
-      </div>
-      <div className={styles.inTheBox}>
-        <h2 className={styles.title}>In The Box</h2>
+      </section>
+      <section aria-labelledby="in-the-box-title" className={styles.inTheBox}>
+        <h2 id="in-the-box-title" className={styles.title}>
+          In The Box
+        </h2>
         <ul className={clsx(styles.boxList, "resetList")}>
           {product.includes.map((boxItem) => (
             <li key={boxItem.item} className={styles.boxItem}>
@@ -23,7 +27,7 @@ export default function Overview({ product }: OverviewProps): JSX.Element {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import ProgQuery from "../ProgQuery/ProgQuery";
 import styles from "./Categories.module.scss";
 import CategoryCard from "./CategoryCard/CategoryCard";
 import clsx from "clsx";
+import { useId } from "react";
 
 export default function Categories(): JSX.Element {
   const categoriesQuery = useQuery({
@@ -12,12 +13,16 @@ export default function Categories(): JSX.Element {
     queryFn: getCategories,
   });
 
+  const titleId = useId();
+
   return (
     <ProgQuery
       queries={[categoriesQuery]}
       outer={(content) => (
-        <nav className={styles.nav}>
-          <h2 className="srOnly">Categories</h2>
+        <nav aria-labelledby={titleId} className={styles.nav}>
+          <h2 id={titleId} className="srOnly">
+            Categories
+          </h2>
           <div className={clsx(styles.inner, "container")}>{content}</div>
         </nav>
       )}

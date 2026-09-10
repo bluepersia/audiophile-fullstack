@@ -30,9 +30,14 @@ export default function Details({ product }: DetailsProps): JSX.Element {
     );
   }
   return (
-    <section className={clsx(styles.details, "container")}>
+    <section
+      aria-labelledby="product-details-title"
+      className={clsx(styles.details, "container")}
+    >
       <div className={styles.content}>
-        <h1 className={styles.title}>{product.name}</h1>
+        <h1 id="product-details-title" className={styles.title}>
+          {product.name}
+        </h1>
         <NewProduct isNew={product.new} className={styles.new} />
         <p className={styles.desc}>{product.description}</p>
         <p className={styles.price}>{formatCurrency(product.price)}</p>
