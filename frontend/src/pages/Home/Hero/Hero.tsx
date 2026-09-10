@@ -10,6 +10,7 @@ import NewProduct from "../../../components/NewProduct/NewProduct";
 import Btn from "../../../components/Btn/Btn";
 import { createProductLink } from "../../../core/linkCreation";
 import { DESKTOP_BP, TABLET_BP } from "../../../consts/breakpoints";
+import { useId } from "react";
 
 export default function Hero(): JSX.Element {
   const heroQuery = useQuery({ queryKey: ["home-hero"], queryFn: getHomeHero });
@@ -20,11 +21,13 @@ export default function Hero(): JSX.Element {
     enabled: heroQuery.isSuccess,
   });
 
+  const titleId = useId();
+
   return (
     <ProgQuery
       queries={[heroQuery, productQuery]}
       outer={(content, queriesStatus) => (
-        <article className={styles.hero}>
+        <article aria-labelledby={titleId} className={styles.hero}>
           <p className="srOnly" aria-live="polite">
             {queriesStatus.type === "pending"
               ? "Loading hero."
@@ -39,7 +42,9 @@ export default function Hero(): JSX.Element {
       {(hero: SectionData, product: ProductData) => (
         <>
           <div className={styles.content}>
-            <h1 className={styles.title}>{hero.alias || product.name}</h1>
+            <h1 id={titleId} className={styles.title}>
+              {hero.alias || product.name}
+            </h1>
             <NewProduct isNew={product.new} className={styles.new} />
             <p className={styles.desc}>{hero.description}</p>
             <Btn

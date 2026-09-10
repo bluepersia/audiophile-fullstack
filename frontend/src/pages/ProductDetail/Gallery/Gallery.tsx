@@ -8,10 +8,15 @@ type GalleryProps = {
   product: ProductData;
 };
 
-//TODO: add gallery alt texts
 export default function Gallery({ product }: GalleryProps): JSX.Element {
   return (
-    <section className={clsx(styles.gallery, "container")}>
+    <section
+      aria-labelledby="gallery-title"
+      className={clsx(styles.gallery, "container")}
+    >
+      <h2 id="gallery-title" className="srOnly">
+        Gallery
+      </h2>
       <picture className={styles.pictureOne}>
         <source
           srcSet={product.gallery.first.desktop}

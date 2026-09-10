@@ -9,8 +9,13 @@ type RelatedProps = {
 };
 export default function Related({ product }: RelatedProps): JSX.Element {
   return (
-    <section className={clsx(styles.related, "container")}>
-      <h2 className={styles.title}>You may also like</h2>
+    <section
+      aria-labelledby="related-products-title"
+      className={clsx(styles.related, "container")}
+    >
+      <h2 id="related-products-title" className={styles.title}>
+        You may also like
+      </h2>
       <ul className={clsx(styles.list, "resetList")}>
         {product.others.map((other) => (
           <li key={other.slug} className={styles.item}>
