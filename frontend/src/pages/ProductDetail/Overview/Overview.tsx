@@ -8,7 +8,7 @@ type OverviewProps = {
 };
 export default function Overview({ product }: OverviewProps): JSX.Element {
   return (
-    <section className={clsx(styles.overview, "container")}>
+    <div className={clsx(styles.overview, "container")}>
       <section aria-labelledby="features-title" className={styles.features}>
         <h2 id="features-title" className={styles.title}>
           Features
@@ -28,6 +28,6 @@ export default function Overview({ product }: OverviewProps): JSX.Element {
           ))}
         </ul>
       </section>
-    </section>
+    </div>
   );
 }
