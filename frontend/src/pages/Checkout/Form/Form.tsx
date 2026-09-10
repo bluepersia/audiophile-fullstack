@@ -23,8 +23,13 @@ export default function Form({
   const cashId = useId();
 
   return (
-    <section className={clsx(styles.checkoutForm, className)}>
-      <h2 className={styles.title}>Checkout</h2>
+    <section
+      aria-labelledby="checkout-form-title"
+      className={clsx(styles.checkoutForm, className)}
+    >
+      <h2 id="checkout-form-title" className={styles.title}>
+        Checkout
+      </h2>
       <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
         <FormSection
           title="Billing Details"

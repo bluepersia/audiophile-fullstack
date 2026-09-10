@@ -16,8 +16,13 @@ type SummaryProps = {
 
 export default function Summary({ submit }: SummaryProps): JSX.Element {
   return (
-    <section className={styles.summary}>
-      <h2 className={clsx(styles.title, "h6")}>Summary</h2>
+    <section
+      aria-labelledby="checkout-summary-title"
+      className={styles.summary}
+    >
+      <h2 id="checkout-summary-title" className={clsx(styles.title, "h6")}>
+        Summary
+      </h2>
       <FullCart>
         {(fullCart) => {
           const { shippingCost, VAT, totalPriceIncVAT, grandTotal } =

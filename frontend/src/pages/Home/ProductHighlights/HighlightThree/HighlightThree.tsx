@@ -5,15 +5,18 @@ import Btn from "../../../../components/Btn/Btn";
 import { createProductLink } from "../../../../core/linkCreation";
 import { DESKTOP_BP, TABLET_BP } from "../../../../consts/breakpoints";
 import clsx from "clsx";
+import { useId } from "react";
 
 export default function HighlightThree({
   highlight,
   product,
 }: HighlightProps): JSX.Element {
+  const titleId = useId();
+
   return (
-    <article className={styles.highlightThree}>
+    <article aria-labelledby={titleId} className={styles.highlightThree}>
       <div className={styles.content}>
-        <h2 className={clsx(styles.title, "h4")}>
+        <h2 id={titleId} className={clsx(styles.title, "h4")}>
           {highlight.alias || product.name}
         </h2>
         <Btn

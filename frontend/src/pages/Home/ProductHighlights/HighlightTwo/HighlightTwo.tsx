@@ -5,14 +5,17 @@ import { createProductLink } from "../../../../core/linkCreation";
 import type { HighlightProps } from "../HighlightRenderer";
 import styles from "./HighlightTwo.module.scss";
 import clsx from "clsx";
+import { useId } from "react";
 
 export default function HighlightTwo({
   highlight,
   product,
 }: HighlightProps): JSX.Element {
+  const titleId = useId();
+
   return (
-    <article className={styles.highlightTwo}>
-      <h2 className={clsx(styles.title, "h4")}>
+    <article aria-labelledby={titleId} className={styles.highlightTwo}>
+      <h2 id={titleId} className={clsx(styles.title, "h4")}>
         {highlight.alias || product.name}
       </h2>
       <Btn

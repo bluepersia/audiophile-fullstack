@@ -5,6 +5,7 @@ import { DESKTOP_BP, TABLET_BP } from "../../../consts/breakpoints";
 import styles from "./ProductRow.module.scss";
 import { createProductLink } from "../../../core/linkCreation";
 import clsx from "clsx";
+import { useId } from "react";
 
 type ProductRowProps = {
   name: string;
@@ -31,8 +32,11 @@ export default function ProductRow({
   alt,
   inverse,
 }: ProductRowProps): JSX.Element {
+  const titleId = useId();
+
   return (
     <article
+      aria-labelledby={titleId}
       className={clsx(
         styles.productRow,
         inverse && styles["productRow--inverse"],
@@ -40,7 +44,9 @@ export default function ProductRow({
       )}
     >
       <div className={styles.content}>
-        <h2 className={styles.title}>{name}</h2>
+        <h2 id={titleId} className={styles.title}>
+          {name}
+        </h2>
         <p className={styles.desc}>{desc}</p>
         <NewProduct isNew={isNew} className={styles.new} />
         <Btn

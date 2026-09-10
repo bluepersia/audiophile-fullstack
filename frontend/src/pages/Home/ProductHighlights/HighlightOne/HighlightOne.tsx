@@ -4,15 +4,20 @@ import styles from "./HighlightOne.module.scss";
 import Btn from "../../../../components/Btn/Btn";
 import { createProductLink } from "../../../../core/linkCreation";
 import { DESKTOP_BP, TABLET_BP } from "../../../../consts/breakpoints";
+import { useId } from "react";
 
 export default function HighlightOne({
   highlight,
   product,
 }: HighlightProps): JSX.Element {
+  const titleId = useId();
+
   return (
     <article className={styles.highlightOne}>
       <div className={styles.content}>
-        <h2 className={styles.title}>{highlight.alias || product.name}</h2>
+        <h2 aria-labelledby={titleId} className={styles.title}>
+          {highlight.alias || product.name}
+        </h2>
         <p className={styles.desc}>{highlight.description}</p>
         <Btn
           to={createProductLink(product.slug)}
