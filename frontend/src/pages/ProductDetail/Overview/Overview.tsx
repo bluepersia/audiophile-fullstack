@@ -2,13 +2,24 @@ import type { JSX } from "react/jsx-runtime";
 import type { ProductData } from "../../../api/products";
 import styles from "./Overview.module.scss";
 import clsx from "clsx";
+import useInView from "../../../hooks/useInView";
 
 type OverviewProps = {
   product: ProductData;
 };
 export default function Overview({ product }: OverviewProps): JSX.Element {
+  const [overviewRef, isVisible] = useInView<HTMLDivElement>();
+
   return (
-    <div className={clsx(styles.overview, "container")}>
+    <div
+      ref={overviewRef}
+      className={clsx(
+        styles.overview,
+        "container",
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
+    >
       <section aria-labelledby="features-title" className={styles.features}>
         <h2 id="features-title" className={styles.title}>
           Features

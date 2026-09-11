@@ -3,6 +3,7 @@
   "customSyntax": "postcss-scss",
   "plugins": ["stylelint-declaration-strict-value", "stylelint-scss"],
   "rules": {
+    "at-rule-prelude-no-invalid": null,
     "media-query-no-invalid": null,
     "nesting-selector-no-missing-scoping-root": null,
     "scss/at-rule-no-unknown": true,

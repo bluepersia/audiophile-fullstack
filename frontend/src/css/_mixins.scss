@@ -112,3 +112,33 @@
   letter-spacing: 0.076em;
   color: var(--color-accent-500);
 }
+
+@mixin animatedBase($distance: 30px, $duration: 500ms) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition: $duration ease;
+}
+
+@mixin animatedVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@mixin fadeIn($duration: 500ms) {
+  animation-name: fade-in;
+  animation-duration: $duration;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -7,14 +7,27 @@
   row-gap: 2.133rem;
 }
 
+.picture {
+  animation: details-image-enter 900ms ease-out both;
+}
+
 .content {
   display: flex;
   flex-direction: column;
 }
 
+.new,
+.title,
+.desc,
+.price,
+.controls {
+  @include mixins.fadeIn(600ms);
+}
+
 .new {
   order: 1;
   margin-bottom: 1.6rem;
+  animation-delay: 500ms;
 }
 
 .title {
@@ -22,12 +35,14 @@
 
   order: 2;
   margin-bottom: 1.6rem;
+  animation-delay: 620ms;
 }
 
 .desc {
   order: 3;
   opacity: 0.5;
   margin-bottom: 1.6rem;
+  animation-delay: 740ms;
 }
 
 .price {
@@ -36,12 +51,14 @@
   font-size: 1.2rem;
   letter-spacing: 0.071em;
   margin-bottom: 2.06rem;
+  animation-delay: 860ms;
 }
 
 .controls {
   order: 5;
   display: flex;
   column-gap: 1.066rem;
+  animation-delay: 980ms;
 }
 
 @media (min-width: $bp-tablet) {
@@ -91,5 +108,15 @@
 
   .price {
     margin-bottom: 3.13rem;
+  }
+}
+
+@keyframes details-image-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

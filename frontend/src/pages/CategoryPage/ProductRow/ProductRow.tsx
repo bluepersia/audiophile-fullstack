@@ -6,6 +6,7 @@ import styles from "./ProductRow.module.scss";
 import { createProductLink } from "../../../core/linkCreation";
 import clsx from "clsx";
 import { useId } from "react";
+import useInView from "../../../hooks/useInView";
 
 type ProductRowProps = {
   name: string;
@@ -32,15 +33,20 @@ export default function ProductRow({
   alt,
   inverse,
 }: ProductRowProps): JSX.Element {
+  const [productRef, isVisible] = useInView();
+
   const titleId = useId();
 
   return (
     <article
       aria-labelledby={titleId}
+      ref={productRef}
       className={clsx(
         styles.productRow,
         inverse && styles["productRow--inverse"],
         "container",
+        "animatedBase",
+        isVisible && "animatedVisible",
       )}
     >
       <div className={styles.content}>

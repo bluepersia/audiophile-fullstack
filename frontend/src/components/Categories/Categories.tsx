@@ -6,8 +6,10 @@ import styles from "./Categories.module.scss";
 import CategoryCard from "./CategoryCard/CategoryCard";
 import clsx from "clsx";
 import { useId } from "react";
+import useInView from "../../hooks/useInView";
 
 export default function Categories(): JSX.Element {
+  const [navRef, isVisible] = useInView();
   const categoriesQuery = useQuery({
     queryKey: ["categories"],
     queryFn: getCategories,
@@ -19,7 +21,15 @@ export default function Categories(): JSX.Element {
     <ProgQuery
       queries={[categoriesQuery]}
       outer={(content) => (
-        <nav aria-labelledby={titleId} className={styles.nav}>
+        <nav
+          aria-labelledby={titleId}
+          ref={navRef}
+          className={clsx(
+            styles.nav,
+            "animatedBase",
+            isVisible && "animatedVisible",
+          )}
+        >
           <h2 id={titleId} className="srOnly">
             Categories
           </h2>

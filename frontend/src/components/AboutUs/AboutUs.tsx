@@ -5,10 +5,21 @@ import bestGearImgDesktop from "/src/assets/shared/desktop/image-best-gear.jpg";
 import { DESKTOP_BP, TABLET_BP } from "../../consts/breakpoints";
 import styles from "./AboutUs.module.scss";
 import clsx from "clsx";
+import useInView from "../../hooks/useInView";
 
 export default function AboutUs(): JSX.Element {
+  const [aboutUsRef, isVisible] = useInView();
+
   return (
-    <section aria-labelledby="about-us-title" className={styles.aboutUs}>
+    <section
+      aria-labelledby="about-us-title"
+      ref={aboutUsRef}
+      className={clsx(
+        styles.aboutUs,
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
+    >
       <div className={clsx(styles.inner, "container")}>
         <picture className={styles.picture}>
           <source
