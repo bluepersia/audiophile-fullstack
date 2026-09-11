@@ -27,7 +27,7 @@ export default function Hero(): JSX.Element {
     <ProgQuery
       queries={[heroQuery, productQuery]}
       outer={(content, queriesStatus) => (
-        <article aria-labelledby={titleId} className={styles.hero}>
+        <article aria-labelledby={titleId} className={clsx(styles.hero)}>
           <p className="srOnly" aria-live="polite">
             {queriesStatus.type === "pending"
               ? "Loading hero."

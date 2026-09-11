@@ -13,7 +13,9 @@ import FullCart from "../FullCart/FullCart";
 export default function Cart(): JSX.Element {
   return (
     <FullCart
-      outer={(content) => <section className={styles.cart}>{content}</section>}
+      outer={(content) => (
+        <section className={clsx(styles.cart, "fadeIn")}>{content}</section>
+      )}
     >
       {(fullCart, cartContext) => {
         const hasItems = fullCart.length > 0;

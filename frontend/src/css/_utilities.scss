@@ -47,3 +47,15 @@
 .subTitle {
   @include mixins.subTitle;
 }
+
+.animatedBase {
+  @include mixins.animatedBase;
+}
+
+.animatedVisible {
+  @include mixins.animatedVisible;
+}
+
+.fadeIn {
+  @include mixins.fadeIn;
+}

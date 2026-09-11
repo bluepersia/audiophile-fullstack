@@ -6,6 +6,7 @@ import type { FormDataState } from "../Checkout";
 import { useId, type ChangeEvent } from "react";
 import cashOnDeliveryImg from "/src/assets/checkout/icon-cash-on-delivery.svg";
 import clsx from "clsx";
+import useInView from "../../../hooks/useInView";
 
 type FormProps = {
   formData: FormDataState;
@@ -19,13 +20,21 @@ export default function Form({
   handleChange,
   className,
 }: FormProps): JSX.Element {
+  const [checkoutFormRef, isVisible] = useInView();
+
   const eMoneyId = useId();
   const cashId = useId();
 
   return (
     <section
       aria-labelledby="checkout-form-title"
-      className={clsx(styles.checkoutForm, className)}
+      ref={checkoutFormRef}
+      className={clsx(
+        styles.checkoutForm,
+        className,
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
     >
       <h2 id="checkout-form-title" className={styles.title}>
         Checkout

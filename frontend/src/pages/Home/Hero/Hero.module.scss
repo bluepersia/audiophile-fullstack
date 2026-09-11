@@ -20,11 +20,19 @@
   margin: 0 auto;
 }
 
+.new,
+.title,
+.desc,
+.btn {
+  @include mixins.fadeIn(600ms);
+}
+
 .new {
   order: 1;
   color: inherit;
   opacity: 0.5;
   margin-bottom: 1.066rem;
+  animation-delay: 500ms;
 }
 
 .title {
@@ -34,6 +42,7 @@
   letter-spacing: 0.0358em;
   text-transform: uppercase;
   margin-bottom: 1.6rem;
+  animation-delay: 620ms;
 }
 
 .desc {
@@ -41,10 +50,12 @@
   opacity: 0.75;
   margin-bottom: 1.86rem;
   max-width: 349px;
+  animation-delay: 740ms;
 }
 
 .btn {
   order: 4;
+  animation-delay: 860ms;
 }
 
 .picture {
@@ -55,6 +66,7 @@
   top: -6.4rem;
   left: 0;
   z-index: -1;
+  animation: hero-image-enter 900ms ease-out both;
 }
 
 .img {
@@ -93,5 +105,15 @@
   .content {
     margin-left: 0;
     align-items: start;
+  }
+}
+
+@keyframes hero-image-enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

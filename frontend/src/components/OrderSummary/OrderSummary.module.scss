@@ -2,16 +2,19 @@
 @use "/src/css/mixins";
 
 .order {
-  background-color: var(--color-neutral-900);
-  padding: clamp(2.1333rem, 1.1155rem + 4.0712vw, 3.2rem);
   width: 87.2%;
   margin: 0 auto;
+  max-width: 540px;
   position: fixed;
   left: 50%;
   top: 55%;
   transform: translate(-50%, -50%);
+}
+
+.inner {
+  background-color: var(--color-neutral-900);
+  padding: clamp(2.1333rem, 1.1155rem + 4.0712vw, 3.2rem);
   border-radius: 8px;
-  max-width: 540px;
 }
 
 .tickImg {

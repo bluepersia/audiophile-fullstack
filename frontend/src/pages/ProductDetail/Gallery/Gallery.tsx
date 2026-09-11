@@ -3,16 +3,25 @@ import type { ProductData } from "../../../api/products";
 import { DESKTOP_BP, TABLET_BP } from "../../../consts/breakpoints";
 import styles from "./Gallery.module.scss";
 import clsx from "clsx";
+import useInView from "../../../hooks/useInView";
 
 type GalleryProps = {
   product: ProductData;
 };
 
 export default function Gallery({ product }: GalleryProps): JSX.Element {
+  const [galleryRef, isVisible] = useInView();
+
   return (
     <section
       aria-labelledby="gallery-title"
-      className={clsx(styles.gallery, "container")}
+      ref={galleryRef}
+      className={clsx(
+        styles.gallery,
+        "container",
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
     >
       <h2 id="gallery-title" className="srOnly">
         Gallery

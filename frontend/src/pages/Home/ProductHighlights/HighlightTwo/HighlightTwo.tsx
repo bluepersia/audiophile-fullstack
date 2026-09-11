@@ -6,15 +6,25 @@ import type { HighlightProps } from "../HighlightRenderer";
 import styles from "./HighlightTwo.module.scss";
 import clsx from "clsx";
 import { useId } from "react";
+import useInView from "../../../../hooks/useInView";
 
 export default function HighlightTwo({
   highlight,
   product,
 }: HighlightProps): JSX.Element {
+  const [highlightTwoRef, isVisible] = useInView();
   const titleId = useId();
 
   return (
-    <article aria-labelledby={titleId} className={styles.highlightTwo}>
+    <article
+      aria-labelledby={titleId}
+      ref={highlightTwoRef}
+      className={clsx(
+        styles.highlightTwo,
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
+    >
       <h2 id={titleId} className={clsx(styles.title, "h4")}>
         {highlight.alias || product.name}
       </h2>

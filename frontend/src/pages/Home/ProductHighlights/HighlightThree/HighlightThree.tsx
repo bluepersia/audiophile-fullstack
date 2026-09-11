@@ -6,15 +6,25 @@ import { createProductLink } from "../../../../core/linkCreation";
 import { DESKTOP_BP, TABLET_BP } from "../../../../consts/breakpoints";
 import clsx from "clsx";
 import { useId } from "react";
+import useInView from "../../../../hooks/useInView";
 
 export default function HighlightThree({
   highlight,
   product,
 }: HighlightProps): JSX.Element {
+  const [highlightThreeRef, isVisible] = useInView();
   const titleId = useId();
 
   return (
-    <article aria-labelledby={titleId} className={styles.highlightThree}>
+    <article
+      aria-labelledby={titleId}
+      ref={highlightThreeRef}
+      className={clsx(
+        styles.highlightThree,
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
+    >
       <div className={styles.content}>
         <h2 id={titleId} className={clsx(styles.title, "h4")}>
           {highlight.alias || product.name}

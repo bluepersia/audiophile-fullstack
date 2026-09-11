@@ -9,16 +9,24 @@ import styles from "./Summary.module.scss";
 import clsx from "clsx";
 import Btn from "../../../components/Btn/Btn";
 import type { FullCartItem } from "../../../contexts/CartContext/CartContext.types";
+import useInView from "../../../hooks/useInView";
 
 type SummaryProps = {
   submit: (fullCart: FullCartItem[]) => void;
 };
 
 export default function Summary({ submit }: SummaryProps): JSX.Element {
+  const [summaryRef, isVisible] = useInView();
+
   return (
     <section
       aria-labelledby="checkout-summary-title"
-      className={styles.summary}
+      ref={summaryRef}
+      className={clsx(
+        styles.summary,
+        "animatedBase",
+        isVisible && "animatedVisible",
+      )}
     >
       <h2 id="checkout-summary-title" className={clsx(styles.title, "h6")}>
         Summary
